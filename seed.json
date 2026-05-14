@@ -3,8 +3,6 @@
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
   "total": 1,
-  "skipped_count": 0,
-  "skipped": [],
   "algorithms": [
     {
       "slug": "bell-state",
@@ -12,7 +10,6 @@
       "description": "Create a maximally entangled Bell pair (|00> + |11>) / sqrt(2) using a Hadamard gate followed by a CNOT.",
       "repo": "openqc-io/algo-bell-state",
       "commit_sha": "6fcd44208645090961cc8f487b759ca436c35b20",
-      "default_branch": "main",
       "version": "1.0.0",
       "author": "openqc-team",
       "license": "Apache-2.0",
@@ -36,8 +33,6 @@
         "beginner",
         "fundamentals"
       ],
-      "stars": 0,
-      "last_updated": "2026-05-14T06:25:56Z",
       "status": "available",
       "metadata": {
         "complexity_classical": "N/A",
