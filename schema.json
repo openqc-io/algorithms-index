@@ -95,8 +95,8 @@
     },
     "computation_model": {
       "type": "string",
-      "enum": ["gate", "annealing", "analog", "mbqc"],
-      "description": "Hardware/runtime model. Must match a compatible backend's computation_model."
+      "enum": ["gate", "annealing", "analog", "mbqc", "classical"],
+      "description": "Hardware/runtime model. gate|annealing|analog|mbqc map to quantum backends; classical is for classical-baseline algorithms (exact-diag, tensor networks) that ship as comparators."
     },
     "algorithm_type": {
       "type": "string",

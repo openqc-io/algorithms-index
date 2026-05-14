@@ -98,6 +98,10 @@
     "mbqc": {
       "label": "Measurement-Based",
       "description": "Cluster-state / measurement-based quantum computation."
+    },
+    "classical": {
+      "label": "Classical Baseline",
+      "description": "Classical solver shipped for comparison (exact diag, brute-force, tensor networks). Runs on CPU; not quantum hardware."
     }
   },
 
