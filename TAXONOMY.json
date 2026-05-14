@@ -1,0 +1,113 @@
+{
+  "version": "2.0",
+  "description": "Canonical enum source for algorithm classification fields (industries, techniques, difficulty, computation_model). Every algorithm.json is validated against this in CI. v2 cleaned up overlap: removed 'optimization' and 'education' from industries (replaced by foundational + technique facets); removed 'vqa' from techniques (replaced by vqe/qaoa families); added 'qml' and 'mbqc'.",
+
+  "industries": {
+    "foundational": {
+      "label": "Foundational / Quantum Primitives",
+      "description": "Quantum primitives without a specific applied domain. bell-state, ghz-state, teleportation, swap-test, deutsch-jozsa, qft, etc. Educational use is signaled via difficulty=beginner, not by industry."
+    },
+    "finance": {
+      "label": "Finance & Banking",
+      "description": "Portfolio optimization, option pricing, risk analysis, credit scoring."
+    },
+    "chemistry": {
+      "label": "Chemistry & Molecular",
+      "description": "Molecular simulation, ground state energy, reaction pathways."
+    },
+    "materials": {
+      "label": "Materials Science",
+      "description": "Band structure, lattice models, condensed matter simulation."
+    },
+    "pharma": {
+      "label": "Pharma & Healthcare",
+      "description": "Drug discovery, molecular docking, protein folding."
+    },
+    "logistics": {
+      "label": "Logistics & Supply Chain",
+      "description": "Vehicle routing, job scheduling, supply chain optimization. Optimization problems live here, not in a separate 'optimization' industry."
+    },
+    "cryptography": {
+      "label": "Cryptography & Security",
+      "description": "QKD protocols, quantum random number generation, PQC demonstrations."
+    },
+    "ml": {
+      "label": "Quantum Machine Learning",
+      "description": "Quantum kernels, classifiers, generative models, feature maps, linear-system solvers (HHL)."
+    },
+    "energy": {
+      "label": "Energy & Sustainability",
+      "description": "Grid optimization, battery simulation, carbon capture modeling."
+    },
+    "telecom": {
+      "label": "Telecommunications",
+      "description": "Network optimization, channel coding, resource allocation."
+    }
+  },
+
+  "techniques": {
+    "gate": {
+      "label": "Gate-Based Circuit",
+      "description": "Pure gate-based, non-variational. grover, qft, deutsch-jozsa, bernstein-vazirani, simons, swap-test, hadamard-test, qpe."
+    },
+    "vqe": {
+      "label": "VQE",
+      "description": "Variational quantum eigensolver family. vqe-h2, vqe-beh2, vqe-h2o, vqe-bond-scan, vqe-hubbard."
+    },
+    "qaoa": {
+      "label": "QAOA",
+      "description": "Quantum approximate optimization algorithm family. qaoa-maxcut, qaoa-tsp, qaoa-portfolio, graph-coloring."
+    },
+    "annealing": {
+      "label": "Quantum Annealing",
+      "description": "Quantum annealing on QUBO/Ising problems. annealing-maxcut, annealing-jobshop, protein-folding (annealing form)."
+    },
+    "analog": {
+      "label": "Analog Hamiltonian Simulation",
+      "description": "Continuous Hamiltonian evolution, Trotterization. trotter-ising, time-evolution."
+    },
+    "qec": {
+      "label": "Quantum Error Correction",
+      "description": "Error correcting codes, syndrome decoding, fault tolerance. bit-flip-code, phase-flip-code, shor-code, steane-code, surface-code."
+    },
+    "qml": {
+      "label": "Quantum Machine Learning",
+      "description": "Quantum-native ML techniques: qsvm, quantum-kernel, quantum-autoencoder."
+    },
+    "classical": {
+      "label": "Classical Baseline",
+      "description": "Classical solvers shipped for comparison: exact-diag, brute-force, random-sampler."
+    }
+  },
+
+  "difficulty_levels": ["beginner", "intermediate", "advanced"],
+
+  "computation_models": {
+    "gate": {
+      "label": "Gate-Based",
+      "description": "Discrete gate quantum circuit. Default for VQE, QAOA, and most algorithms."
+    },
+    "annealing": {
+      "label": "Quantum Annealing",
+      "description": "QUBO/Ising adiabatic problems. D-Wave and SA simulators."
+    },
+    "analog": {
+      "label": "Analog",
+      "description": "Continuous Hamiltonian evolution (Rydberg arrays, Trotterized simulation)."
+    },
+    "mbqc": {
+      "label": "Measurement-Based",
+      "description": "Cluster-state / measurement-based quantum computation."
+    }
+  },
+
+  "removed_in_v2": {
+    "industries": {
+      "optimization": "Was an industry, but optimization is a technique flavor (qaoa/annealing) applied across finance, logistics, etc. Use those industries + technique tags.",
+      "education": "Was an industry, but educational use is an audience signal (difficulty=beginner), not an application domain. Foundational/primitive algorithms now live in industry=foundational."
+    },
+    "techniques": {
+      "vqa": "Was an umbrella tag mixing VQE and QAOA. Use the specific family (vqe or qaoa). UI groupings 'all variational' derive from the union."
+    }
+  }
+}

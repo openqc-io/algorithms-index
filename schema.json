@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
+  "title": "OpenQC Algorithm Entry (four-axis model)",
+  "description": "Schema for algorithm.json files at the root of every openqc-io/algo-* repo. Models an algorithm using four orthogonal axes (owner, scope, access, implementation_mode) plus classification fields. See PRPs/community-algorithms/taxonomy.md for the canonical model.",
+  "type": "object",
+  "required": [
+    "slug",
+    "name",
+    "description",
+    "owner",
+    "scope",
+    "access",
+    "implementation_mode",
+    "industries",
+    "techniques",
+    "difficulty",
+    "computation_model",
+    "qubit_count"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+      "description": "URL-safe unique identifier. Must match the repo name suffix (algo-{slug})."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable algorithm name."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "default": "1.0.0",
+      "description": "Semver version string for the algorithm package."
+    },
+    "author": {
+      "type": "string",
+      "description": "GitHub username or organization that maintains this algorithm."
+    },
+    "license": {
+      "type": "string",
+      "default": "Apache-2.0",
+      "description": "SPDX license identifier."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Brief description of the algorithm (1-2 sentences)."
+    },
+
+    "owner": {
+      "type": "string",
+      "enum": ["openqc", "community"],
+      "description": "Primary axis. Who owns the algorithm. `user` (workspace-local) is NOT a valid owner in catalog-published algorithm.json — those rows are platform-internal."
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["catalog"],
+      "description": "Primary axis. Every catalog-published algorithm.json has scope=catalog. `workspace` rows never publish to the index repo; they live workspace-local in MongoDB only."
+    },
+    "access": {
+      "type": "string",
+      "enum": ["open", "gated", "paid", "private"],
+      "description": "Overlay axis. Distribution policy for the executable artifact. open: code visible in repo; gated: free, request access; paid: pricing applies; private: invite-only."
+    },
+    "implementation_mode": {
+      "type": "string",
+      "enum": ["catalog_synced", "hosted_api"],
+      "description": "Overlay axis. How the executable artifact is delivered. catalog_synced: template.py shipped in repo at pinned commit_sha; hosted_api: executable lives behind a provider URL (`provider_url` required)."
+    },
+    "provider_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Required when implementation_mode=hosted_api. HTTPS endpoint that accepts a run request and returns a job result. Code never reaches the platform."
+    },
+
+    "industries": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Application-domain tags. Must validate against TAXONOMY.json#/industries. Note: `optimization` and `education` are NOT industries — use technique facets (qaoa/annealing) and the `foundational` industry instead."
+    },
+    "techniques": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Quantum technique tags. Must validate against TAXONOMY.json#/techniques. Note: `vqa` is not a tag — use the specific family (`vqe` or `qaoa`)."
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"],
+      "description": "Audience guidance, not a gate."
+    },
+    "computation_model": {
+      "type": "string",
+      "enum": ["gate", "annealing", "analog", "mbqc"],
+      "description": "Hardware/runtime model. Must match a compatible backend's computation_model."
+    },
+    "algorithm_type": {
+      "type": "string",
+      "enum": ["circuit", "vqa", "annealing", "classical", "qkd", "protocol", "analog"],
+      "default": "circuit",
+      "description": "Execution type — determines job routing and result format."
+    },
+    "qubit_count": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of qubits (or problem variables for annealing/classical)."
+    },
+    "min_qubits": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Minimum useful qubit count for scalable algorithms."
+    },
+    "recommended_backends": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Suggested simulator profiles (e.g. vortex-noiseless, vortex-ibm-heron-like)."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Free-form searchable tags. Not validated against TAXONOMY."
+    },
+
+    "access_reason": {
+      "type": "string",
+      "description": "Why this algorithm is gated/paid/private. Shown to users requesting access."
+    },
+    "pricing": {
+      "type": "object",
+      "description": "Required when access=paid; forbidden otherwise. Validated by allOf at the bottom of this schema.",
+      "required": ["model", "price_usd"],
+      "properties": {
+        "model": {
+          "type": "string",
+          "enum": ["per_run", "monthly"],
+          "description": "Pricing model."
+        },
+        "price_usd": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Price in USD."
+        },
+        "trial_runs": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of free trial runs before payment required (per_run only)."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "circuit_qasm_path": {
+      "type": "string",
+      "description": "Relative path to the OpenQASM 2.0 circuit file in this repo (typically circuit.qasm). Omitted when implementation_mode=hosted_api."
+    },
+    "template_path": {
+      "type": "string",
+      "description": "Relative path to the executor module (typically template.py). Omitted when implementation_mode=hosted_api."
+    },
+    "input_schema": {
+      "type": "object",
+      "description": "JSON Schema for algorithm input parameters."
+    },
+    "output_schema": {
+      "type": "object",
+      "description": "JSON Schema for algorithm output."
+    },
+
+    "status": {
+      "type": "string",
+      "enum": ["available", "coming-soon", "experimental", "deprecated"],
+      "default": "available",
+      "description": "Lifecycle state of the algorithm package."
+    },
+    "blockers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Dependencies preventing materialization. Used with status: coming-soon."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional free-form metadata (complexity, year, references, etc.).",
+      "additionalProperties": true
+    }
+  },
+
+  "allOf": [
+    {
+      "description": "If access=paid then pricing is required.",
+      "if": { "properties": { "access": { "const": "paid" } }, "required": ["access"] },
+      "then": { "required": ["pricing"] }
+    },
+    {
+      "description": "If access != paid then pricing must be absent.",
+      "if": {
+        "properties": { "access": { "not": { "const": "paid" } } },
+        "required": ["access"]
+      },
+      "then": { "not": { "required": ["pricing"] } }
+    },
+    {
+      "description": "If implementation_mode=hosted_api then provider_url is required.",
+      "if": {
+        "properties": { "implementation_mode": { "const": "hosted_api" } },
+        "required": ["implementation_mode"]
+      },
+      "then": { "required": ["provider_url"] }
+    }
+  ],
+
+  "additionalProperties": false
+}
