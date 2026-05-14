@@ -1,0 +1,77 @@
+name: Build Algorithm Index
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # every 6 hours
+  workflow_dispatch:        # manual trigger
+  push:
+    paths:
+      - 'SUBMISSIONS.json'  # rebuild when submissions change
+      - 'schema.json'       # rebuild on schema changes
+      - 'TAXONOMY.json'     # rebuild on taxonomy changes
+  repository_dispatch:
+    types: [algorithm-updated]  # webhook from algo-* repos on push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install jsonschema
+
+      - name: Build INDEX.json + seed.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENQC_GITHUB_ORG: openqc-io
+        run: python scripts/build_index.py
+
+      - name: Commit INDEX.json + seed.json if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add INDEX.json seed.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-update algorithm index [skip ci]"
+            git push
+          fi
+
+      - name: Upload INDEX.json artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: algorithm-index
+          path: INDEX.json
+          retention-days: 90
+
+      - name: Upload seed.json artifact (for vortex-platform image bundling)
+        uses: actions/upload-artifact@v4
+        with:
+          name: algorithm-seed
+          path: seed.json
+          retention-days: 90
+
+      - name: Summary
+        run: |
+          echo "## Index build summary" >> $GITHUB_STEP_SUMMARY
+          python -c "
+          import json
+          idx = json.load(open('INDEX.json'))
+          print(f\"- **Algorithms indexed:** {idx['total']}\")
+          print(f\"- **Skipped:** {idx['skipped_count']}\")
+          print(f\"- **TAXONOMY version:** {idx['taxonomy_version']}\")
+          if idx['skipped']:
+              print(\"\")
+              print(\"### Skipped entries\")
+              for s in idx['skipped']:
+                  print(f\"- {s}\")
+          " >> $GITHUB_STEP_SUMMARY

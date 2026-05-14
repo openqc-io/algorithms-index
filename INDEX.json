@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-04-16T07:32:24.697801+00:00",
+  "total": 3,
+  "algorithms": [
+    {
+      "slug": "your-algorithm-slug",
+      "name": "Your Algorithm Name",
+      "version": "1.0.0",
+      "author": "your-github-username",
+      "license": "Apache-2.0",
+      "description": "One or two sentences describing what this algorithm does.",
+      "industries": [
+        "education"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 2,
+      "recommended_backends": [
+        "vortex-noiseless"
+      ],
+      "tags": [
+        "your",
+        "tags",
+        "here"
+      ],
+      "access": "open",
+      "source": "official",
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {}
+      },
+      "metadata": {
+        "year_introduced": 2026,
+        "references": []
+      },
+      "repo": "iniestarchen/algo-template",
+      "stars": 0,
+      "last_updated": "2026-03-23T09:18:26Z",
+      "default_branch": "main"
+    },
+    {
+      "slug": "hhl-linear-solver",
+      "name": "HHL Algorithm",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "description": "Solve Ax=b for a 2x2 system using the Harrow-Hassidim-Lloyd algorithm.",
+      "industries": [
+        "ml",
+        "optimization"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "hhl",
+        "linear-algebra",
+        "matrix-inversion"
+      ],
+      "access": "open",
+      "source": "official",
+      "metadata": {
+        "year_introduced": 2009
+      },
+      "repo": "iniestarchen/hhl-algorithm",
+      "stars": 0,
+      "last_updated": "2026-03-23T09:44:29Z",
+      "default_branch": "main"
+    },
+    {
+      "slug": "simons-algorithm",
+      "name": "Simon's Algorithm",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "description": "Find the hidden period s=11 of a 2-to-1 function with exponential quantum speedup.",
+      "industries": [
+        "education"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "simon",
+        "period-finding",
+        "exponential-speedup"
+      ],
+      "access": "open",
+      "source": "community",
+      "metadata": {
+        "year_introduced": 1994
+      },
+      "repo": "iniestarchen/simons-algorithm",
+      "stars": 0,
+      "last_updated": "2026-03-23T09:46:41Z",
+      "default_branch": "main",
+      "submitted_by": "iniestarchen",
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "shots": {
+            "type": "integer",
+            "description": "Number of measurement repetitions (default 1024)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "counts": {
+            "type": "object"
+          },
+          "hidden_period": {
+            "type": "string"
+          },
+          "valid_probability": {
+            "type": "number"
+          }
+        }
+      },
+      "template_code": "class AlgorithmTemplate:\n\n    def build(self, input_data, ctx):\n        shots = input_data.get(\"shots\", 1024)\n        qasm = \"\"\"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[4];\ncreg c[2];\nh q[0]; h q[1];\ncx q[0],q[2]; cx q[1],q[2]; cx q[0],q[3];\nh q[0]; h q[1];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\"\"\"\n        backend = ctx.get(\"backend_id\", \"vortex-noiseless\")\n        provider = \"vortex\"\n        if \"ibm\" in backend:\n            provider = \"ibm\"\n        elif \"ionq\" in backend:\n            provider = \"ionq\"\n        return {\n            \"type\": \"circuit\",\n            \"provider\": provider,\n            \"backend_id\": backend,\n            \"qasm_code\": qasm,\n            \"shots\": shots,\n        }\n\n    def interpret(self, raw_result, input_data):\n        counts = raw_result.get(\"counts\", {})\n        total = sum(counts.values()) if counts else 0\n        valid = [\"00\", \"11\"]\n        valid_count = sum(counts.get(v, 0) for v in valid)\n        valid_prob = valid_count / total if total > 0 else 0\n        top = sorted(counts.items(), key=lambda x: -x[1])[:4]\n        return {\n            \"counts\": counts,\n            \"hidden_period\": \"11\",\n            \"valid_measurements\": valid,\n            \"valid_probability\": round(valid_prob, 4),\n            \"top_outcomes\": [{\"state\": s, \"count\": c} for s, c in top],\n            \"note\": \"Simons algorithm found period s=11. Valid measurements (y.s=0 mod 2): 00, 11. Observed \" + str(round(valid_prob * 100, 1)) + \"% valid outcomes out of \" + str(total) + \" shots.\",\n        }\n",
+      "circuit_code": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\n// Simon's algorithm: 2-bit function with period s=\"11\"\n// f(00)=f(11)=10, f(01)=f(10)=01\n// q[0..1]: input register, q[2..3]: output register\nqreg q[4];\ncreg c[2];\n// Superpose input\nh q[0]; h q[1];\n// Oracle for f with period s=\"11\":\n// Copy q[0] -> q[2], q[1] -> q[3], q[0] XOR q[1] -> q[2]\ncx q[0],q[2];\ncx q[1],q[2];\ncx q[0],q[3];\n// Apply Hadamard to input register\nh q[0]; h q[1];\n// Measure input: gives y satisfying y.s = 0 mod 2\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\n"
+    }
+  ]
+}

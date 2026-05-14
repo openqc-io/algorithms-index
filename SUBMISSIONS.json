@@ -1,0 +1,15 @@
+{
+  "description": "Community algorithm repositories for inclusion in the OpenQC catalog.",
+  "how_to_submit": "Add your repo to the community_repos array below, then submit a PR to this repo.",
+  "requirements": [
+    "Your repo must have a valid algorithm.json at its root",
+    "algorithm.json must follow the schema at schema.json in this repo",
+    "slug must be unique (not already in INDEX.json)"
+  ],
+  "example_entry": {
+    "repo": "your-github-username/your-repo-name",
+    "submitted_by": "your-github-username",
+    "submitted_at": "2026-03-24"
+  },
+  "community_repos": []
+}
