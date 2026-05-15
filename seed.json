@@ -1,9 +1,44 @@
 {
-  "generated_at": "2026-05-15T02:42:08.004520+00:00",
+  "generated_at": "2026-05-15T03:39:47.470543+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
-  "total": 19,
+  "total": 53,
   "algorithms": [
+    {
+      "slug": "amplitude-estimation",
+      "name": "Amplitude Estimation",
+      "description": "Estimate the amplitude a using 3 precision qubits via quantum phase estimation.",
+      "repo": "openqc-io/algo-amplitude-estimation",
+      "commit_sha": "2cf121546e84a6c7d912e27d3eff14fe5d0b224b",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "finance"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "amplitude-estimation",
+        "qpe",
+        "monte-carlo"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 2000
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
     {
       "slug": "annealing-jobshop",
       "name": "Job-Shop Scheduling (Annealing)",
@@ -135,6 +170,42 @@
       }
     },
     {
+      "slug": "bb84-qkd",
+      "name": "BB84 Quantum Key Distribution",
+      "description": "BB84 QKD protocol: Alice encodes bits in randomly chosen bases; Bob measures to establish shared secret key.",
+      "repo": "openqc-io/algo-bb84-qkd",
+      "commit_sha": "112cc5c7ec8477e7b7235d862dad0e919a4eb299",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 1,
+      "tags": [
+        "qkd",
+        "bb84",
+        "cryptography",
+        "key-distribution"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1984
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
       "slug": "bell-state",
       "name": "Bell State",
       "description": "Create a maximally entangled Bell pair (|00> + |11>) / sqrt(2) using a Hadamard gate followed by a CNOT.",
@@ -171,6 +242,146 @@
         "references": [
           "https://en.wikipedia.org/wiki/Bell_state"
         ]
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "bernstein-vazirani",
+      "name": "Bernstein-Vazirani Algorithm",
+      "description": "Recover a hidden binary string s=101 from f(x) = s*x (mod 2) in a single query.",
+      "repo": "openqc-io/algo-bernstein-vazirani",
+      "commit_sha": "bc583b315e942def166982128afae2bc686218fa",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "bernstein-vazirani",
+        "oracle",
+        "hidden-string"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1993
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "bit-flip-code",
+      "name": "Bit-Flip Code",
+      "description": "3-qubit repetition code that encodes 1 logical qubit and corrects single bit-flip errors.",
+      "repo": "openqc-io/algo-bit-flip-code",
+      "commit_sha": "c4298136652fe76fd529a080b4c9a1186b068362",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qec"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 3,
+      "tags": [
+        "bit-flip",
+        "qec",
+        "repetition-code"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1995
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "cluster-state",
+      "name": "Cluster State Preparation",
+      "description": "Prepare a 4-qubit linear cluster state for measurement-based quantum computation.",
+      "repo": "openqc-io/algo-cluster-state",
+      "commit_sha": "6a4d266e574ccc77b13c93460d1af993aba067bb",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "cluster-state",
+        "mbqc",
+        "entanglement"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 2001
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "deutsch-jozsa",
+      "name": "Deutsch-Jozsa Algorithm",
+      "description": "Determine whether a 3-bit Boolean function is constant or balanced in one query.",
+      "repo": "openqc-io/algo-deutsch-jozsa",
+      "commit_sha": "b323463b6fbe49e68766ee86857efb3dcb5c8405",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "deutsch-jozsa",
+        "oracle",
+        "query-complexity"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1992
       },
       "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
@@ -266,6 +477,112 @@
       }
     },
     {
+      "slug": "entanglement-swapping",
+      "name": "Entanglement Swapping",
+      "description": "Create entanglement between two qubits that never directly interact, via entanglement swapping.",
+      "repo": "openqc-io/algo-entanglement-swapping",
+      "commit_sha": "e786ea4e662a9ef6867b14d0b26f8610e6d85e46",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "entanglement-swapping",
+        "teleportation",
+        "bell-state"
+      ],
+      "status": "coming-soon",
+      "blockers": [
+        "Legacy QASM uses indexed-bit if() classical control that Qiskit's OpenQASM 2.0 parser doesn't accept. Rewrite needed before status=available."
+      ],
+      "metadata": {
+        "year_introduced": 1993
+      }
+    },
+    {
+      "slug": "error-detection",
+      "name": "Quantum Error Detection",
+      "description": "Detect any single-qubit error using 4 physical qubits encoding 2 logical qubits.",
+      "repo": "openqc-io/algo-error-detection",
+      "commit_sha": "9a092807479094a0b48ed6f50e44552be9fe52ca",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qec"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "error-detection",
+        "qec",
+        "stabilizer"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1995
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "ghz-secret-sharing",
+      "name": "GHZ Secret Sharing",
+      "description": "3-party quantum secret sharing using a GHZ state: requires cooperation to recover secret.",
+      "repo": "openqc-io/algo-ghz-secret-sharing",
+      "commit_sha": "12b12256ceab31a78219ce35da34766bc431f6f5",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 3,
+      "tags": [
+        "ghz",
+        "secret-sharing",
+        "multiparty"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1999
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
       "slug": "ghz-state",
       "name": "GHZ State",
       "description": "Create a three-qubit Greenberger-Horne-Zeilinger state (|000> + |111>) / sqrt(2), a maximally entangled multi-qubit state.",
@@ -302,6 +619,181 @@
         "references": [
           "https://en.wikipedia.org/wiki/Greenberger%E2%80%93Horne%E2%80%93Zeilinger_state"
         ]
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "grover-search",
+      "name": "Grover's Search Algorithm",
+      "description": "Quadratic speedup for unstructured search: finds target among N items in O(sqrt(N)) queries.",
+      "repo": "openqc-io/algo-grover-search",
+      "commit_sha": "e7f55bb9e91b7ea27ba0a8b183e8c946c6338bef",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 2,
+      "tags": [
+        "search",
+        "oracle",
+        "amplitude-amplification"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1996
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "hadamard-test",
+      "name": "Hadamard Test",
+      "description": "Estimate Re(<psi|U|psi>) for U=Z gate using a single ancilla qubit.",
+      "repo": "openqc-io/algo-hadamard-test",
+      "commit_sha": "db42832af92b5fa89533b43fd572a3496de44d83",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 2,
+      "tags": [
+        "hadamard-test",
+        "expectation-value",
+        "ancilla"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1997
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "hhl-linear-solver",
+      "name": "HHL Algorithm",
+      "description": "Solve Ax=b for a 2x2 system using the Harrow-Hassidim-Lloyd algorithm.",
+      "repo": "openqc-io/algo-hhl-linear-solver",
+      "commit_sha": "aa92a3c46adab921892328dca8c8a32b1c3ddb22",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "ml"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "hhl",
+        "linear-algebra",
+        "matrix-inversion"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 2009
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "phase-flip-code",
+      "name": "Phase-Flip Code",
+      "description": "3-qubit code that corrects single phase-flip (Z) errors by encoding in the X basis.",
+      "repo": "openqc-io/algo-phase-flip-code",
+      "commit_sha": "6694da114edbb3bf4fea06f74e55276b528008dd",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qec"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 3,
+      "tags": [
+        "phase-flip",
+        "qec",
+        "repetition-code"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1995
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "phase-kickback",
+      "name": "Phase Kickback",
+      "description": "Demonstrate the phase kickback trick: a CNOT with ancilla in |- > imprints a phase on the control qubit.",
+      "repo": "openqc-io/algo-phase-kickback",
+      "commit_sha": "9b265204e80f6d3f9816d9e1fb249e156f03592a",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 2,
+      "tags": [
+        "phase-kickback",
+        "ancilla",
+        "trick"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1985
       },
       "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
@@ -352,6 +844,50 @@
       }
     },
     {
+      "slug": "qaoa",
+      "name": "Quantum Approximate Optimization Algorithm (QAOA)",
+      "description": "Approximate combinatorial optimization using alternating problem and mixer unitaries. This 4-qubit example targets a MaxCut problem on a 4-node ring graph with p=1.",
+      "repo": "openqc-io/algo-qaoa",
+      "commit_sha": "86992492b4d6b3d0a00a319d88c3552185a9408d",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qaoa"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "variational",
+        "qaoa",
+        "maxcut",
+        "optimization",
+        "combinatorial",
+        "hybrid"
+      ],
+      "status": "coming-soon",
+      "blockers": [
+        "Runnable circuit / template implementation pending."
+      ],
+      "metadata": {
+        "complexity_classical": "Optimizer-dependent",
+        "complexity_quantum": "O(p * m) where p=depth, m=edges",
+        "year_introduced": 2014,
+        "references": [
+          "https://arxiv.org/abs/1411.4028"
+        ]
+      }
+    },
+    {
       "slug": "qaoa-graph-coloring",
       "name": "QAOA - Graph Coloring",
       "description": "Solve graph coloring using QAOA with QUBO penalty encoding. N nodes with K colors use N*K binary variables. One-hot constraint per node (exactly one color) plus penalty for same-color adjacent nodes. Practical for 4 nodes x 3 colors (12 qubits).",
@@ -393,6 +929,42 @@
           "https://doi.org/10.3389/fphy.2014.00005"
         ]
       }
+    },
+    {
+      "slug": "qaoa-maxcut",
+      "name": "QAOA MaxCut",
+      "description": "Quantum Approximate Optimization Algorithm (p=1) for MaxCut on a graph.",
+      "repo": "openqc-io/algo-qaoa-maxcut",
+      "commit_sha": "fc7b8e31a9d37b24bb63181336d944d0ad890710",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qaoa"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "qaoa",
+        "maxcut",
+        "optimization",
+        "variational"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 2014
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
     },
     {
       "slug": "qaoa-tsp",
@@ -438,6 +1010,330 @@
       }
     },
     {
+      "slug": "qaoa-vrp",
+      "name": "QAOA - Vehicle Routing Problem",
+      "description": "Solve the Vehicle Routing Problem (VRP) via QAOA with QUBO encoding. Multiple vehicles serve customers from a depot, minimizing total distance. Generalization of TSP with capacity constraints. QUBO formulation scales fast (N customers \u00d7 K vehicles \u00d7 T time steps). Practical only when simulator handles 20+ qubits efficiently.",
+      "repo": "openqc-io/algo-qaoa-vrp",
+      "commit_sha": "8fe16fb2273c14c378c8579a1d15d9c95af8b488",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "logistics"
+      ],
+      "techniques": [
+        "qaoa"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "vqa",
+      "qubit_count": 20,
+      "tags": [
+        "qaoa",
+        "optimization",
+        "vrp",
+        "logistics",
+        "advanced"
+      ],
+      "status": "coming-soon",
+      "blockers": [
+        "Runnable circuit / template implementation pending."
+      ],
+      "metadata": {
+        "complexity_classical": "NP-hard",
+        "complexity_quantum": "O(poly(n)) per QAOA iteration, heuristic",
+        "year_introduced": 2019,
+        "references": [
+          "https://arxiv.org/abs/1908.02210"
+        ]
+      }
+    },
+    {
+      "slug": "qft",
+      "name": "Quantum Fourier Transform",
+      "description": "4-qubit QFT: the quantum analogue of the discrete Fourier transform.",
+      "repo": "openqc-io/algo-qft",
+      "commit_sha": "21afc560bef62650561fb7d9ab7e32f2a6c3b70e",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "qft",
+        "fourier",
+        "subroutine"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1994
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "qpe",
+      "name": "Quantum Phase Estimation",
+      "description": "Estimate the eigenphase of the T gate using 3 counting qubits.",
+      "repo": "openqc-io/algo-qpe",
+      "commit_sha": "bf210fc200c78f312052e9d9c92ea5b7d2e22d9d",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "qpe",
+        "phase-estimation",
+        "eigenvalue"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1995
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "qrng",
+      "name": "Quantum Random Number Generator",
+      "description": "Generate truly random bits using quantum superposition and measurement.",
+      "repo": "openqc-io/algo-qrng",
+      "commit_sha": "1b3dcf2de00a03a47f145a2cd8caa89e8fc95f27",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "qrng",
+        "random",
+        "measurement"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 2000
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "quantum-adder",
+      "name": "Quantum Half-Adder",
+      "description": "Reversible quantum half-adder: computes sum and carry for 1-bit inputs using Toffoli gates.",
+      "repo": "openqc-io/algo-quantum-adder",
+      "commit_sha": "f1f2c44acbdafb13b63c5a371163335b4c5b6c33",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "adder",
+        "arithmetic",
+        "toffoli",
+        "reversible"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1996
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "quantum-coin-flip",
+      "name": "Quantum Coin Flipping",
+      "description": "Fair coin flipping over a quantum channel: Alice and Bob each contribute randomness via entanglement.",
+      "repo": "openqc-io/algo-quantum-coin-flip",
+      "commit_sha": "e24d7df966c43da675d6d936808ae12f2c53c14d",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 2,
+      "tags": [
+        "coin-flipping",
+        "protocol",
+        "fairness"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1984
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "quantum-counting",
+      "name": "Quantum Counting",
+      "description": "Count solutions to a 2-qubit oracle using QPE applied to Grover's operator.",
+      "repo": "openqc-io/algo-quantum-counting",
+      "commit_sha": "b41e897140669b18edfafa0a7bfd10c5398d37c9",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "counting",
+        "grover",
+        "qpe"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1998
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "quantum-fingerprint",
+      "name": "Quantum Fingerprinting",
+      "description": "Exponentially compress a classical string into a quantum fingerprint for equality testing.",
+      "repo": "openqc-io/algo-quantum-fingerprint",
+      "commit_sha": "1887fbfb6f44ddc3fc39afd44c6f574fb67efcf6",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 2,
+      "tags": [
+        "fingerprinting",
+        "communication-complexity",
+        "exponential-compression"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 2001
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "quantum-walk",
+      "name": "Discrete Quantum Walk",
+      "description": "2-step discrete quantum walk on a 4-node cycle using Hadamard coin.",
+      "repo": "openqc-io/algo-quantum-walk",
+      "commit_sha": "471bc079807762ddbd468c38931a1d7634f6d0db",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 3,
+      "tags": [
+        "quantum-walk",
+        "graph",
+        "coin-operator"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1993
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
       "slug": "repetition-code",
       "name": "Repetition Code",
       "description": "The simplest quantum error-correcting code. Encodes one logical qubit into 5 physical qubits (distance 3) with 4 syndrome ancillas to detect single bit-flip errors.",
@@ -474,6 +1370,188 @@
         "year_introduced": 1995,
         "references": [
           "https://en.wikipedia.org/wiki/Quantum_error_correction"
+        ]
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "shor-code",
+      "name": "Shor's 9-Qubit Code",
+      "description": "First quantum error-correcting code: encodes 1 logical qubit into 9 physical qubits.",
+      "repo": "openqc-io/algo-shor-code",
+      "commit_sha": "fad24aa0c2230f176d4e8f3c2b9479f514c15ac5",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qec"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 9,
+      "tags": [
+        "shor-code",
+        "qec",
+        "concatenated"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1995
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "shor-period-finding",
+      "name": "Shor's Period Finding",
+      "description": "Core period-finding subroutine of Shor's algorithm: find the period r of f(x) = 7^x mod 15.",
+      "repo": "openqc-io/algo-shor-period-finding",
+      "commit_sha": "20881d50ff7c3d85d7a134bd3f3bc16ad2a2b9b0",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "shor",
+        "factoring",
+        "period-finding"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1994
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "simons-algorithm",
+      "name": "Simon's Algorithm",
+      "description": "Find the hidden period s=11 of a 2-to-1 function with exponential quantum speedup.",
+      "repo": "openqc-io/algo-simons-algorithm",
+      "commit_sha": "f7595d34adfc4324bf3d356cedc6afa2912edeb4",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "simon",
+        "period-finding",
+        "exponential-speedup"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1994
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "steane-code",
+      "name": "Steane [[7,1,3]] Code",
+      "description": "First CSS code: encodes 1 logical qubit in 7 physical qubits, corrects any single-qubit error.",
+      "repo": "openqc-io/algo-steane-code",
+      "commit_sha": "25b2e09288c8bc3c75fa701ba85d1aa58a49de5b",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qec"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 7,
+      "tags": [
+        "steane",
+        "css-code",
+        "qec",
+        "error-correction"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1996
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "superdense-coding",
+      "name": "Superdense Coding",
+      "description": "Transmit 2 classical bits using 1 qubit and a pre-shared Bell pair (encodes message '11').",
+      "repo": "openqc-io/algo-superdense-coding",
+      "commit_sha": "fbcf75527dfa903dd0b04e3f64771871597897c9",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "MIT",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 2,
+      "tags": [
+        "superdense-coding",
+        "fundamentals",
+        "entanglement",
+        "communication"
+      ],
+      "status": "available",
+      "metadata": {
+        "complexity_classical": "N/A",
+        "complexity_quantum": "O(1)",
+        "year_introduced": 1992,
+        "references": [
+          "https://doi.org/10.1103/PhysRevLett.69.2881"
         ]
       },
       "circuit_qasm_path": "circuit.qasm",
@@ -517,6 +1595,41 @@
         "references": [
           "https://arxiv.org/abs/quant-ph/9707021"
         ]
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "swap-test",
+      "name": "SWAP Test",
+      "description": "Measure state overlap between two quantum states using a Fredkin gate.",
+      "repo": "openqc-io/algo-swap-test",
+      "commit_sha": "c429a52c96de3444550d19022596bc99d82ad341",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 3,
+      "tags": [
+        "swap-test",
+        "fidelity",
+        "state-comparison"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 2001
       },
       "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
@@ -606,6 +1719,78 @@
           "https://doi.org/10.1103/PhysRevLett.93.040502"
         ]
       }
+    },
+    {
+      "slug": "trotter-ising",
+      "name": "Trotter-Ising Simulation",
+      "description": "One first-order Trotter step simulating the 1D transverse-field Ising model on 4 qubits.",
+      "repo": "openqc-io/algo-trotter-ising",
+      "commit_sha": "b29ef848dc4dc9f22598dd58a4a1491aa1d6c68d",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "materials"
+      ],
+      "techniques": [
+        "analog"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "analog",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "trotter",
+        "ising",
+        "hamiltonian-simulation",
+        "condensed-matter"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1996
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "vqe-ansatz",
+      "name": "VQE Hardware-Efficient Ansatz",
+      "description": "4-qubit hardware-efficient variational ansatz for VQE with Ry-Rz-CNOT layers.",
+      "repo": "openqc-io/algo-vqe-ansatz",
+      "commit_sha": "cb43edad9f70ff49ac14095fbd936c825451bf30",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "chemistry"
+      ],
+      "techniques": [
+        "vqe"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "vqe",
+        "variational",
+        "ansatz",
+        "chemistry"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 2014
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
     },
     {
       "slug": "vqe-beh2",
@@ -825,6 +2010,48 @@
           "https://doi.org/10.1098/rspa.1963.0204"
         ]
       }
+    },
+    {
+      "slug": "w-state",
+      "name": "W State",
+      "description": "W state: symmetric 3-qubit entangled state (|001> + |010> + |100>)/sqrt(3). Robust to particle loss.",
+      "repo": "openqc-io/algo-w-state",
+      "commit_sha": "e12f283c97d17d5be8f989f24e87cb1924ca4516",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "MIT",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 3,
+      "tags": [
+        "entanglement",
+        "fundamentals",
+        "w-state",
+        "multipartite",
+        "robust"
+      ],
+      "status": "available",
+      "metadata": {
+        "complexity_classical": "N/A",
+        "complexity_quantum": "O(1)",
+        "year_introduced": 2000,
+        "references": [
+          "https://doi.org/10.1103/PhysRevA.62.062314"
+        ]
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
     }
   ]
 }
