@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-16T13:41:07.685128+00:00",
+  "generated_at": "2026-05-16T14:11:19.007316+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
-  "total": 39,
+  "total": 52,
   "algorithms": [
     {
       "slug": "amplitude-estimation",
@@ -37,6 +37,331 @@
         "year_introduced": 2000
       },
       "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "annealing-nurse-scheduling",
+      "name": "Nurse Scheduling (Annealing)",
+      "description": "Solve a simplified nurse shift scheduling problem (4 nurses, 3 shifts) via QUBO encoding. A real-world operations research problem in healthcare.",
+      "repo": "openqc-io/algo-annealing-nurse-scheduling",
+      "commit_sha": "e97a99596b8a56f636da6efbb5254dc2a7faa82e",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "logistics"
+      ],
+      "techniques": [
+        "annealing"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "annealing",
+      "algorithm_type": "annealing",
+      "qubit_count": 8,
+      "tags": [
+        "logistics",
+        "pharma",
+        "optimization",
+        "annealing",
+        "scheduling"
+      ],
+      "status": "available",
+      "min_qubits": 8,
+      "recommended_backends": [
+        "vortex-annealing-sim"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "num_nurses": {
+            "type": "integer",
+            "description": "Number of nurses (default 4)"
+          },
+          "num_shifts": {
+            "type": "integer",
+            "description": "Number of shifts (default 3)"
+          },
+          "min_per_shift": {
+            "type": "integer",
+            "description": "Min nurses per shift (default 1)"
+          },
+          "max_per_nurse": {
+            "type": "integer",
+            "description": "Max shifts per nurse (default 2)"
+          },
+          "num_reads": {
+            "type": "number",
+            "description": "Annealing samples (default 1000)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "schedule": {
+            "type": "object",
+            "description": "{nurse_id: [shift_ids]}"
+          },
+          "violations": {
+            "type": "number"
+          },
+          "best_energy": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "Can quantum computing schedule hospital staff? Nurse scheduling is a classic constraint satisfaction problem \u2014 each nurse must work enough shifts, each shift must have enough nurses, and preferences should be respected.",
+        "expected_takeaway": "You will see how annealing naturally handles constraint satisfaction, finding valid schedules that balance workload and coverage requirements."
+      },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "annealing-portfolio",
+      "name": "Portfolio Optimization (Annealing)",
+      "description": "Solve Markowitz mean-variance portfolio selection for 4 assets via QUBO encoding on the annealing solver. Compare with QAOA-portfolio to evaluate gate vs annealing paradigm tradeoffs.",
+      "repo": "openqc-io/algo-annealing-portfolio",
+      "commit_sha": "b341ea7ecac7bd2fe80ec0b4a3643d2756842775",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "finance"
+      ],
+      "techniques": [
+        "annealing"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "annealing",
+      "algorithm_type": "annealing",
+      "qubit_count": 4,
+      "tags": [
+        "finance",
+        "optimization",
+        "annealing",
+        "portfolio",
+        "qubo"
+      ],
+      "status": "available",
+      "min_qubits": 4,
+      "recommended_backends": [
+        "vortex-annealing-sim"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "returns",
+          "covariance"
+        ],
+        "properties": {
+          "returns": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "description": "Expected returns per asset"
+          },
+          "covariance": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "description": "Covariance matrix"
+          },
+          "risk_factor": {
+            "type": "number",
+            "description": "Risk aversion factor (default 0.5)"
+          },
+          "budget": {
+            "type": "integer",
+            "description": "Max assets to select (default 2)"
+          },
+          "num_reads": {
+            "type": "number",
+            "description": "Annealing samples (default 1000)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "selected_assets": {
+            "type": "array"
+          },
+          "expected_return": {
+            "type": "number"
+          },
+          "portfolio_risk": {
+            "type": "number"
+          },
+          "best_energy": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "Can quantum annealing optimize investment portfolios? This template encodes Markowitz mean-variance optimization as a QUBO problem \u2014 the same framework used by quantitative finance teams.",
+        "expected_takeaway": "You will see how annealing finds optimal asset allocations by minimizing risk-adjusted returns, and can compare against the QAOA gate-based approach."
+      },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "annealing-qubo",
+      "name": "QUBO Solver (Annealing)",
+      "description": "Solve a QUBO optimization problem via quantum/simulated annealing.",
+      "repo": "openqc-io/algo-annealing-qubo",
+      "commit_sha": "3bb572aff87e76f99eac1ad93e83713fd775c106",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "annealing"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "annealing",
+      "algorithm_type": "annealing",
+      "qubit_count": 1,
+      "tags": [
+        "optimization",
+        "annealing",
+        "qubo"
+      ],
+      "status": "available",
+      "min_qubits": 1,
+      "recommended_backends": [
+        "vortex-annealing-sim"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "qubo"
+        ],
+        "properties": {
+          "qubo": {
+            "type": "object",
+            "description": "QUBO matrix as {\"(i,j)\": value}"
+          },
+          "num_reads": {
+            "type": "number",
+            "description": "Number of samples (default 1000)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "best_solution": {
+            "type": "object"
+          },
+          "best_energy": {
+            "type": "number"
+          },
+          "samples": {
+            "type": "array"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "What is quantum annealing? This template solves a raw QUBO problem by finding the lowest-energy configuration \u2014 a fundamentally different approach from gate-based computing.",
+        "expected_takeaway": "You will see how annealing naturally settles into low-energy solutions, demonstrating energy-based optimization."
+      },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "battery-material-trotter",
+      "name": "Battery Material Simulation (Trotter)",
+      "description": "Simulate time evolution of a simplified lithium-ion intercalation Hamiltonian using Trotter-Suzuki decomposition for battery research.",
+      "repo": "openqc-io/algo-battery-material-trotter",
+      "commit_sha": "c6f1f5e50ebd44e87eb74897af3d19b19d1ae372",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "materials"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "energy",
+        "materials",
+        "chemistry",
+        "trotter",
+        "simulation"
+      ],
+      "status": "available",
+      "min_qubits": 4,
+      "recommended_backends": [
+        "vortex-noiseless"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "time": {
+            "type": "number",
+            "description": "Evolution time (default 1.0)"
+          },
+          "steps": {
+            "type": "integer",
+            "description": "Trotter steps (default 4)"
+          },
+          "coupling": {
+            "type": "number",
+            "description": "Lattice coupling strength (default 0.5)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "final_state_distribution": {
+            "type": "object"
+          },
+          "trotter_fidelity_estimate": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "Can quantum computing design better batteries? This template simulates electron dynamics in a lithium-ion lattice \u2014 the quantum chemistry behind next-generation energy storage.",
+        "expected_takeaway": "You will see how Trotter decomposition approximates time evolution of a material Hamiltonian, with fidelity depending on step count."
+      },
       "template_path": "template.py"
     },
     {
@@ -184,6 +509,214 @@
         "year_introduced": 1995
       },
       "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "classical-brute-force-qubo",
+      "name": "Brute-Force QUBO Solver (Classical)",
+      "description": "Enumerate all 2^n solutions to find the provably optimal answer. Compare against quantum annealing or QAOA to see if they found the true optimum. Max 20 variables.",
+      "repo": "openqc-io/algo-classical-brute-force-qubo",
+      "commit_sha": "14d5f4cf2c97c298f075f85b13057c8b1fa83d73",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "classical"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "classical",
+      "algorithm_type": "classical",
+      "qubit_count": 1,
+      "tags": [
+        "classical",
+        "brute-force",
+        "qubo",
+        "baseline",
+        "optimization"
+      ],
+      "status": "available",
+      "min_qubits": 1,
+      "recommended_backends": [
+        "vortex-brute-force"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "qubo"
+        ],
+        "properties": {
+          "qubo": {
+            "type": "object",
+            "description": "QUBO matrix as {\"(i,j)\": value} (max 20 variables)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "optimal_energy": {
+            "type": "number"
+          },
+          "solutions": {
+            "type": "array"
+          },
+          "num_evaluated": {
+            "type": "integer"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "What is the best possible answer? Brute-force evaluates every solution to find the guaranteed optimum \u2014 but only works for small problems.",
+        "expected_takeaway": "You will see the provably optimal solution. Compare it to quantum and annealing results to measure how close they got."
+      },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "classical-exact-diag",
+      "name": "Exact Diagonalization (Classical)",
+      "description": "Compute exact probability distribution via NumPy matrix multiplication. No sampling noise \u2014 returns the true quantum state probabilities. Use to validate quantum hardware/simulator results. Max 12 qubits.",
+      "repo": "openqc-io/algo-classical-exact-diag",
+      "commit_sha": "6b5e48966b5b9de18623066986e07521fd528a5b",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "classical"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "classical",
+      "algorithm_type": "classical",
+      "qubit_count": 1,
+      "tags": [
+        "classical",
+        "exact",
+        "baseline",
+        "validation"
+      ],
+      "status": "available",
+      "min_qubits": 1,
+      "recommended_backends": [
+        "vortex-exact-diag"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "qasm_code"
+        ],
+        "properties": {
+          "qasm_code": {
+            "type": "string",
+            "description": "QASM 2.0 circuit to diagonalize (max 12 qubits)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "exact_probabilities": {
+            "type": "object"
+          },
+          "ground_state": {
+            "type": "string"
+          },
+          "ground_state_probability": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "What is the mathematically exact answer? Exact diagonalization computes the true probability distribution \u2014 no randomness, no approximation.",
+        "expected_takeaway": "You will see the exact answer that quantum simulations try to match. Use this as a reference to evaluate quantum results."
+      },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "classical-random-baseline",
+      "name": "Random Sampling Baseline",
+      "description": "Generate uniform random measurement outcomes as a null hypothesis. Compare against quantum circuit results to prove they are not random. Same output format as circuit jobs (counts + probabilities).",
+      "repo": "openqc-io/algo-classical-random-baseline",
+      "commit_sha": "a0048d928e5a10d8bd1ba4514872fa2a9d0c27b9",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "classical"
+      ],
+      "difficulty": "beginner",
+      "computation_model": "classical",
+      "algorithm_type": "classical",
+      "qubit_count": 1,
+      "tags": [
+        "classical",
+        "random",
+        "baseline",
+        "statistics"
+      ],
+      "status": "available",
+      "min_qubits": 1,
+      "recommended_backends": [
+        "vortex-random-baseline"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "num_qubits"
+        ],
+        "properties": {
+          "num_qubits": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "description": "Number of qubits (bits per sample)"
+          },
+          "shots": {
+            "type": "integer",
+            "description": "Number of random samples (default 1024)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "counts": {
+            "type": "object"
+          },
+          "probabilities": {
+            "type": "object"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "What does random guessing look like? This baseline shows what happens with no quantum computation \u2014 if your quantum result looks similar, the circuit may not be doing useful work.",
+        "expected_takeaway": "You will see a uniform random distribution. A good quantum result should look clearly different from this."
+      },
       "template_path": "template.py"
     },
     {
@@ -579,6 +1112,90 @@
       "template_path": "template.py"
     },
     {
+      "slug": "qaoa-portfolio",
+      "name": "Portfolio Optimization (QAOA)",
+      "description": "Optimize asset allocation using QAOA on a mean-variance cost function. Omit required fields to use the built-in example: 5 tech stocks (AAPL, GOOGL, MSFT, AMZN, TSLA) with historical covariance data.",
+      "repo": "openqc-io/algo-qaoa-portfolio",
+      "commit_sha": "57faa68618992157a2911fbdccf732e6edd1084a",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "finance"
+      ],
+      "techniques": [
+        "qaoa"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "vqa",
+      "qubit_count": 4,
+      "tags": [
+        "finance",
+        "optimization",
+        "qaoa",
+        "portfolio"
+      ],
+      "status": "available",
+      "min_qubits": 4,
+      "recommended_backends": [
+        "vortex-noiseless"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Asset tickers (default: AAPL, GOOGL, MSFT, AMZN, TSLA)"
+          },
+          "returns_matrix": {
+            "type": "array",
+            "description": "Covariance matrix (default: historical tech stock data)"
+          },
+          "risk_tolerance": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Risk tolerance 0-1 (default 0.5). 0=min risk, 1=max return."
+          },
+          "use_example": {
+            "type": "boolean",
+            "description": "Use built-in 5-stock example data (default true if no assets provided)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "allocation": {
+            "type": "object",
+            "description": "{asset: 0 or 1}"
+          },
+          "expected_return": {
+            "type": "number"
+          },
+          "portfolio_risk": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "Can quantum computing optimize an investment portfolio? QAOA balances risk and return across assets \u2014 the same problem financial institutions solve daily.",
+        "expected_takeaway": "You will see how QAOA explores portfolio allocations and can compare the quantum result against classical optimization."
+      },
+      "template_path": "template.py"
+    },
+    {
       "slug": "qft",
       "name": "Quantum Fourier Transform",
       "description": "4-qubit QFT: the quantum analogue of the discrete Fourier transform.",
@@ -720,6 +1337,81 @@
       "template_path": "template.py"
     },
     {
+      "slug": "quantum-approximate-counting",
+      "name": "Quantum Approximate Counting",
+      "description": "Estimate the number of solutions to a search problem using Grover iterations combined with quantum phase estimation.",
+      "repo": "openqc-io/algo-quantum-approximate-counting",
+      "commit_sha": "fc1df67bb62400f402850f18e9863bc2dcd38caa",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 6,
+      "tags": [
+        "optimization",
+        "finance",
+        "grover",
+        "counting",
+        "qpe"
+      ],
+      "status": "available",
+      "min_qubits": 6,
+      "recommended_backends": [
+        "vortex-noiseless"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "search_space_bits": {
+            "type": "integer",
+            "description": "Search space qubits (default 3)"
+          },
+          "precision_bits": {
+            "type": "integer",
+            "description": "QPE precision qubits (default 3)"
+          },
+          "num_marked": {
+            "type": "integer",
+            "description": "Number of marked items (default 2)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "estimated_count": {
+            "type": "number"
+          },
+          "actual_count": {
+            "type": "number"
+          },
+          "search_space_size": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "How many needles are in the haystack? Quantum approximate counting combines Grover's search with phase estimation to count solutions without finding them all \u2014 a prerequisite for quantum Monte Carlo methods used in finance.",
+        "expected_takeaway": "You will see how the algorithm estimates the number of marked items in a search space, with accuracy improving as precision qubits increase."
+      },
+      "template_path": "template.py"
+    },
+    {
       "slug": "quantum-coin-flip",
       "name": "Quantum Coin Flipping",
       "description": "Fair coin flipping over a quantum channel: Alice and Bob each contribute randomness via entanglement.",
@@ -822,6 +1514,73 @@
         "year_introduced": 2001
       },
       "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "quantum-kernel-classifier",
+      "name": "Quantum Kernel Classifier",
+      "description": "Classify data using quantum kernel estimation. Encodes data into quantum states and computes kernel matrix entries via fidelity tests.",
+      "repo": "openqc-io/algo-quantum-kernel-classifier",
+      "commit_sha": "7a2f99c13d29bae2364cbf0b50b98573a90e6fbc",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "ml"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "ml",
+        "classification",
+        "kernel",
+        "machine-learning"
+      ],
+      "status": "available",
+      "min_qubits": 4,
+      "recommended_backends": [
+        "vortex-noiseless"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "num_qubits": {
+            "type": "integer",
+            "description": "Feature map qubits (default 4)"
+          },
+          "reps": {
+            "type": "integer",
+            "description": "Feature map repetitions (default 2)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "kernel_alignment": {
+            "type": "number"
+          },
+          "fidelity_samples": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "Can quantum computers enhance machine learning? Quantum kernel methods map data into a high-dimensional Hilbert space where classical separability emerges \u2014 a quantum advantage for pattern recognition.",
+        "expected_takeaway": "You will see how quantum feature maps create kernels that capture patterns classical kernels might miss, demonstrated on a simple classification task."
+      },
       "template_path": "template.py"
     },
     {
@@ -1161,6 +1920,78 @@
       "template_path": "template.py"
     },
     {
+      "slug": "telecom-channel-coding",
+      "name": "Quantum-Assisted Channel Coding",
+      "description": "Demonstrate quantum error correction applied to a noisy classical communication channel using a 5-qubit repetition code with syndrome measurement.",
+      "repo": "openqc-io/algo-telecom-channel-coding",
+      "commit_sha": "152e7f474718e6e1936a2cdbf2cf29bcdc7bf1bf",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qec"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 5,
+      "tags": [
+        "telecom",
+        "education",
+        "qec",
+        "error-correction",
+        "channel-coding"
+      ],
+      "status": "available",
+      "min_qubits": 5,
+      "recommended_backends": [
+        "vortex-noiseless",
+        "vortex-noisy-default"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "error_rate": {
+            "type": "number",
+            "description": "Channel bit-flip error rate (default 0.1)"
+          },
+          "code_distance": {
+            "type": "integer",
+            "description": "Repetition code distance (default 3)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "uncorrected_error_rate": {
+            "type": "number"
+          },
+          "corrected_error_rate": {
+            "type": "number"
+          },
+          "improvement_factor": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "How can quantum error correction improve communications? This template applies QEC principles to protect information sent over a noisy channel \u2014 the same concept that makes 5G and satellite links reliable.",
+        "expected_takeaway": "You will see how redundant encoding and syndrome measurement detect and correct errors, comparing noisy vs corrected transmission fidelity."
+      },
+      "template_path": "template.py"
+    },
+    {
       "slug": "teleportation",
       "name": "Quantum Teleportation",
       "description": "Teleport the state of qubit 0 to qubit 2 using a pre-shared Bell pair and classical communication.",
@@ -1235,6 +2066,80 @@
         "year_introduced": 1996
       },
       "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "variational-quantum-classifier",
+      "name": "Variational Quantum Classifier (VQC)",
+      "description": "Train a parameterized quantum circuit to classify binary data using angle encoding and a variational ansatz optimized with COBYLA.",
+      "repo": "openqc-io/algo-variational-quantum-classifier",
+      "commit_sha": "52798d9860e8d70bfc92343e00128e054294842e",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "ml"
+      ],
+      "techniques": [
+        "vqe"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "vqa",
+      "qubit_count": 4,
+      "tags": [
+        "ml",
+        "vqa",
+        "classification",
+        "machine-learning"
+      ],
+      "status": "available",
+      "min_qubits": 4,
+      "recommended_backends": [
+        "vortex-noiseless"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "num_features": {
+            "type": "integer",
+            "description": "Input features (default 2)"
+          },
+          "num_layers": {
+            "type": "integer",
+            "description": "Ansatz layers (default 2)"
+          },
+          "optimizer": {
+            "type": "string",
+            "description": "Optimizer (default COBYLA)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "accuracy": {
+            "type": "number"
+          },
+          "optimal_params": {
+            "type": "array"
+          },
+          "total_iterations": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "Can quantum computers learn to classify data? The Variational Quantum Classifier encodes data into quantum states and trains a circuit to separate classes \u2014 a quantum approach to machine learning.",
+        "expected_takeaway": "You will see VQC learn to classify simple 2D data points, with accuracy converging through the optimization loop."
+      },
       "template_path": "template.py"
     },
     {
@@ -1357,6 +2262,79 @@
         ]
       },
       "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "vqe-lih",
+      "name": "VQE - LiH Ground State",
+      "description": "Find the ground state energy of the lithium hydride molecule using VQE.",
+      "repo": "openqc-io/algo-vqe-lih",
+      "commit_sha": "9919977549cba5b1fad1f3c91993f3eadd30bb39",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "chemistry"
+      ],
+      "techniques": [
+        "vqe"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "vqa",
+      "qubit_count": 4,
+      "tags": [
+        "chemistry",
+        "vqe",
+        "molecular"
+      ],
+      "status": "available",
+      "min_qubits": 4,
+      "recommended_backends": [
+        "vortex-noiseless"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "bond_length": {
+            "type": "number",
+            "description": "Li-H bond length in Angstroms (default 1.546)"
+          },
+          "optimizer": {
+            "type": "string",
+            "description": "Classical optimizer (default COBYLA)"
+          },
+          "max_iterations": {
+            "type": "number",
+            "description": "Max VQE iterations (default 300)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ground_state_energy": {
+            "type": "number"
+          },
+          "optimal_params": {
+            "type": "array"
+          },
+          "total_iterations": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "year_introduced": null,
+        "source": "ported from in-image builtin",
+        "academic_intro": "Can quantum chemistry scale beyond simple molecules? VQE finds the ground state energy of lithium hydride \u2014 a step up from H2 that pushes toward practical molecular simulation.",
+        "expected_takeaway": "You will see VQE converge to the LiH ground state energy and can compare against exact diagonalization."
+      },
       "template_path": "template.py"
     },
     {
