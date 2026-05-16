@@ -154,6 +154,17 @@ def build_entry(
     taxonomy: dict,
 ) -> dict | None:
     """Validate + compose a single INDEX.json entry. Returns None on failure."""
+    # Skip `coming-soon` entries entirely. Repos stay in openqc-io so we can
+    # ship them later — flipping the algorithm.json `status` field to
+    # `available` and rebuilding the index brings them back. The platform
+    # only sees runnable algorithms in the meantime.
+    if algo.get("status") == "coming-soon":
+        print(
+            f"::notice::Skipping {repo_full_name} — status=coming-soon",
+            file=sys.stderr,
+        )
+        return None
+
     try:
         jsonschema.validate(algo, schema)
     except jsonschema.ValidationError as e:
