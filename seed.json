@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T00:50:13.282704+00:00",
+  "generated_at": "2026-05-16T00:53:59.057180+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
   "total": 54,
@@ -2058,7 +2058,7 @@
       "name": "CHSH Bell Inequality Test",
       "description": "Measure a Bell pair in rotated bases and compute the correlation E. Demonstrates the foundational result that quantum mechanics violates the CHSH inequality (S > 2 across four measurement settings).",
       "repo": "openqc-io/algo-chsh-bell-test",
-      "commit_sha": "9549ef02047926d3c7b93cafb95f7b8b4bccfafc",
+      "commit_sha": "89fff83644c2d2d90297618f3b3f89a6e207525e",
       "version": "1.0.0",
       "author": "openqc-community",
       "license": "Apache-2.0",
