@@ -123,9 +123,25 @@ def load_community_submissions() -> list[dict]:
     return data.get("community_repos", [])
 
 
-def derive_owner(repo_full_name: str) -> str:
-    """Owner derivation: openqc org → owner=openqc; else community."""
-    return "openqc" if repo_full_name.startswith(f"{ORG}/") else "community"
+def resolve_owner(repo_full_name: str, declared: str | None) -> str:
+    """Resolve the canonical ``owner`` axis for an entry.
+
+    Repo location sets the *upper bound* on what an algorithm can claim:
+    outside the openqc-io org, the owner is always ``community`` (a
+    contributor can't unilaterally publish under ``owner=openqc``).
+
+    Within openqc-io we honor the algorithm.json ``owner`` field, so a
+    community-authored algorithm can be hosted in openqc-io for
+    operational convenience (shared SSH key, centralized CI) while still
+    being correctly tagged ``owner=community``. Authorship, not hosting,
+    determines the axis.
+    """
+    in_org = repo_full_name.startswith(f"{ORG}/")
+    if not in_org:
+        return "community"
+    if declared == "community":
+        return "community"
+    return "openqc"
 
 
 def build_entry(
@@ -163,14 +179,15 @@ def build_entry(
         )
         return None
 
-    # owner derived from repo location; schema may also declare it, but the
-    # repo location is authoritative — a contributor can't publish under
-    # owner=openqc unless the repo is in the openqc org.
-    owner = derive_owner(repo_full_name)
-    if algo.get("owner") and algo["owner"] != owner:
+    # Owner resolution honors algorithm.json's ``owner`` field when the
+    # algorithm declares ``community``, even if hosted inside the
+    # openqc-io org. Repo location only sets the upper bound.
+    declared = algo.get("owner")
+    owner = resolve_owner(repo_full_name, declared)
+    if declared == "openqc" and owner == "community":
         print(
-            f"::warning::owner mismatch in {repo_full_name}: algorithm.json claims '{algo['owner']}' "
-            f"but repo location implies '{owner}'. Using repo location.",
+            f"::warning::owner downgrade in {repo_full_name}: algorithm.json claims "
+            f"'openqc' but repo is outside openqc-io; resolved to 'community'.",
             file=sys.stderr,
         )
 
