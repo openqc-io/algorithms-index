@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T15:38:31.354744+00:00",
+  "generated_at": "2026-06-29T19:50:40.286830+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
   "total": 52,
@@ -2169,7 +2169,7 @@
         "fundamentals"
       ],
       "stars": 0,
-      "last_updated": "",
+      "last_updated": "2026-05-14T08:41:48Z",
       "status": "available",
       "metadata": {
         "complexity_classical": "N/A",
