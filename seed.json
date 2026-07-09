@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-09T02:29:43.624582+00:00",
+  "generated_at": "2026-07-09T09:35:38.699410+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
-  "total": 52,
+  "total": 51,
   "algorithms": [
     {
       "slug": "amplitude-estimation",
@@ -362,42 +362,6 @@
         "academic_intro": "Can quantum computing design better batteries? This template simulates electron dynamics in a lithium-ion lattice \u2014 the quantum chemistry behind next-generation energy storage.",
         "expected_takeaway": "You will see how Trotter decomposition approximates time evolution of a material Hamiltonian, with fidelity depending on step count."
       },
-      "template_path": "template.py"
-    },
-    {
-      "slug": "bb84-qkd",
-      "name": "BB84 Quantum Key Distribution",
-      "description": "BB84 QKD protocol: Alice encodes bits in randomly chosen bases; Bob measures to establish shared secret key.",
-      "repo": "openqc-io/algo-bb84-qkd",
-      "commit_sha": "112cc5c7ec8477e7b7235d862dad0e919a4eb299",
-      "version": "1.0.0",
-      "author": "iniestarchen",
-      "license": "Apache-2.0",
-      "owner": "openqc",
-      "scope": "catalog",
-      "access": "open",
-      "implementation_mode": "catalog_synced",
-      "industries": [
-        "cryptography"
-      ],
-      "techniques": [
-        "gate"
-      ],
-      "difficulty": "intermediate",
-      "computation_model": "gate",
-      "algorithm_type": "circuit",
-      "qubit_count": 1,
-      "tags": [
-        "qkd",
-        "bb84",
-        "cryptography",
-        "key-distribution"
-      ],
-      "status": "available",
-      "metadata": {
-        "year_introduced": 1984
-      },
-      "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
     },
     {
