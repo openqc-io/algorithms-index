@@ -1,14 +1,13 @@
 {
-  "generated_at": "2026-07-09T09:35:38.699410+00:00",
+  "generated_at": "2026-07-09T14:46:36.668916+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
-  "total": 51,
-  "skipped_count": 16,
+  "total": 52,
+  "skipped_count": 15,
   "skipped": [
     "openqc-io/algo-annealing-jobshop@29823a2: validation failed",
     "openqc-io/algo-annealing-maxcut@4fbd74d: validation failed",
     "openqc-io/algo-b92-qkd@2d8f170: validation failed",
-    "openqc-io/algo-bb84-qkd@112cc5c: no algorithm.json",
     "openqc-io/algo-drug-docking@e4101cf: validation failed",
     "openqc-io/algo-e91-qkd@4798422: validation failed",
     "openqc-io/algo-entanglement-swapping@e786ea4: validation failed",
@@ -396,6 +395,45 @@
         "academic_intro": "Can quantum computing design better batteries? This template simulates electron dynamics in a lithium-ion lattice \u2014 the quantum chemistry behind next-generation energy storage.",
         "expected_takeaway": "You will see how Trotter decomposition approximates time evolution of a material Hamiltonian, with fidelity depending on step count."
       },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "bb84-qkd",
+      "name": "BB84 Quantum Key Distribution",
+      "description": "BB84 QKD protocol: Alice encodes bits in randomly chosen bases; Bob measures to establish shared secret key.",
+      "repo": "openqc-io/algo-bb84-qkd",
+      "commit_sha": "112cc5c7ec8477e7b7235d862dad0e919a4eb299",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 1,
+      "tags": [
+        "qkd",
+        "bb84",
+        "cryptography",
+        "key-distribution"
+      ],
+      "stars": 0,
+      "last_updated": "2026-05-15T03:15:01Z",
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1984
+      },
+      "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
     },
     {
