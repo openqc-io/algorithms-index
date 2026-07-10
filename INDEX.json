@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T02:31:47.566602+00:00",
+  "generated_at": "2026-07-10T09:27:13.509638+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
   "total": 52,
@@ -14,7 +14,7 @@
     "openqc-io/algo-protein-folding@9541da0: validation failed",
     "openqc-io/algo-qaoa@8699249: validation failed",
     "openqc-io/algo-qaoa-graph-coloring@542c50e: validation failed",
-    "openqc-io/algo-qaoa-tsp@ef46f82: validation failed",
+    "openqc-io/algo-qaoa-tsp@ef46f82: no algorithm.json",
     "openqc-io/algo-qaoa-vrp@8fe16fb: validation failed",
     "openqc-io/algo-tensor-network-sim@a2ed966: validation failed",
     "openqc-io/algo-vqe-bond-scan@b64005b: validation failed",
