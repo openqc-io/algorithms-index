@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-13T14:24:00.311302+00:00",
+  "generated_at": "2026-07-13T19:18:50.078184+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
-  "total": 51,
+  "total": 52,
   "algorithms": [
     {
       "slug": "amplitude-estimation",
@@ -1691,6 +1691,41 @@
       "status": "available",
       "metadata": {
         "year_introduced": 1995
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "shor-period-finding",
+      "name": "Shor's Period Finding",
+      "description": "Core period-finding subroutine of Shor's algorithm: find the period r of f(x) = 7^x mod 15.",
+      "repo": "openqc-io/algo-shor-period-finding",
+      "commit_sha": "20881d50ff7c3d85d7a134bd3f3bc16ad2a2b9b0",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "shor",
+        "factoring",
+        "period-finding"
+      ],
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1994
       },
       "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
