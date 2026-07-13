@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T18:59:42.606386+00:00",
+  "generated_at": "2026-07-13T02:16:22.634006+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
-  "total": 52,
-  "skipped_count": 15,
+  "total": 50,
+  "skipped_count": 17,
   "skipped": [
     "openqc-io/algo-annealing-jobshop@29823a2: validation failed",
     "openqc-io/algo-annealing-maxcut@4fbd74d: validation failed",
@@ -19,7 +19,9 @@
     "openqc-io/algo-tensor-network-sim@a2ed966: validation failed",
     "openqc-io/algo-vqe-bond-scan@b64005b: validation failed",
     "openqc-io/algo-vqe-h2o@f882547: validation failed",
-    "openqc-io/algo-vqe-hubbard@8a11c61: validation failed"
+    "openqc-io/algo-vqe-hubbard@8a11c61: validation failed",
+    "openqc-io/algo-vqe-lih@9919977: no algorithm.json",
+    "openqc-io/algo-w-state@e12f283: no algorithm.json"
   ],
   "algorithms": [
     {
@@ -2424,127 +2426,6 @@
         "year_introduced": 2014,
         "references": [
           "https://arxiv.org/abs/1304.3061"
-        ]
-      },
-      "circuit_qasm_path": "circuit.qasm",
-      "template_path": "template.py"
-    },
-    {
-      "slug": "vqe-lih",
-      "name": "VQE - LiH Ground State",
-      "description": "Find the ground state energy of the lithium hydride molecule using VQE.",
-      "repo": "openqc-io/algo-vqe-lih",
-      "commit_sha": "9919977549cba5b1fad1f3c91993f3eadd30bb39",
-      "default_branch": "main",
-      "version": "1.0.0",
-      "author": "openqc-team",
-      "license": "Apache-2.0",
-      "owner": "openqc",
-      "scope": "catalog",
-      "access": "open",
-      "implementation_mode": "catalog_synced",
-      "industries": [
-        "chemistry"
-      ],
-      "techniques": [
-        "vqe"
-      ],
-      "difficulty": "intermediate",
-      "computation_model": "gate",
-      "algorithm_type": "vqa",
-      "qubit_count": 4,
-      "tags": [
-        "chemistry",
-        "vqe",
-        "molecular"
-      ],
-      "stars": 0,
-      "last_updated": "2026-05-16T14:09:16Z",
-      "status": "available",
-      "min_qubits": 4,
-      "recommended_backends": [
-        "vortex-noiseless"
-      ],
-      "input_schema": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "bond_length": {
-            "type": "number",
-            "description": "Li-H bond length in Angstroms (default 1.546)"
-          },
-          "optimizer": {
-            "type": "string",
-            "description": "Classical optimizer (default COBYLA)"
-          },
-          "max_iterations": {
-            "type": "number",
-            "description": "Max VQE iterations (default 300)"
-          }
-        }
-      },
-      "output_schema": {
-        "type": "object",
-        "properties": {
-          "ground_state_energy": {
-            "type": "number"
-          },
-          "optimal_params": {
-            "type": "array"
-          },
-          "total_iterations": {
-            "type": "number"
-          }
-        }
-      },
-      "metadata": {
-        "year_introduced": null,
-        "source": "ported from in-image builtin",
-        "academic_intro": "Can quantum chemistry scale beyond simple molecules? VQE finds the ground state energy of lithium hydride \u2014 a step up from H2 that pushes toward practical molecular simulation.",
-        "expected_takeaway": "You will see VQE converge to the LiH ground state energy and can compare against exact diagonalization."
-      },
-      "template_path": "template.py"
-    },
-    {
-      "slug": "w-state",
-      "name": "W State",
-      "description": "W state: symmetric 3-qubit entangled state (|001> + |010> + |100>)/sqrt(3). Robust to particle loss.",
-      "repo": "openqc-io/algo-w-state",
-      "commit_sha": "e12f283c97d17d5be8f989f24e87cb1924ca4516",
-      "default_branch": "main",
-      "version": "1.0.0",
-      "author": "iniestarchen",
-      "license": "MIT",
-      "owner": "openqc",
-      "scope": "catalog",
-      "access": "open",
-      "implementation_mode": "catalog_synced",
-      "industries": [
-        "foundational"
-      ],
-      "techniques": [
-        "gate"
-      ],
-      "difficulty": "beginner",
-      "computation_model": "gate",
-      "algorithm_type": "circuit",
-      "qubit_count": 3,
-      "tags": [
-        "entanglement",
-        "fundamentals",
-        "w-state",
-        "multipartite",
-        "robust"
-      ],
-      "stars": 0,
-      "last_updated": "2026-05-15T03:34:55Z",
-      "status": "available",
-      "metadata": {
-        "complexity_classical": "N/A",
-        "complexity_quantum": "O(1)",
-        "year_introduced": 2000,
-        "references": [
-          "https://doi.org/10.1103/PhysRevA.62.062314"
         ]
       },
       "circuit_qasm_path": "circuit.qasm",
