@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T09:01:29.389856+00:00",
+  "generated_at": "2026-07-13T14:24:00.311302+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
   "total": 51,
@@ -11,14 +11,14 @@
     "openqc-io/algo-drug-docking@e4101cf: validation failed",
     "openqc-io/algo-e91-qkd@4798422: validation failed",
     "openqc-io/algo-entanglement-swapping@e786ea4: validation failed",
-    "openqc-io/algo-ghz-secret-sharing@12b1225: no algorithm.json",
     "openqc-io/algo-protein-folding@9541da0: validation failed",
     "openqc-io/algo-qaoa@8699249: validation failed",
     "openqc-io/algo-qaoa-graph-coloring@542c50e: validation failed",
     "openqc-io/algo-qaoa-tsp@ef46f82: validation failed",
     "openqc-io/algo-qaoa-vrp@8fe16fb: validation failed",
+    "openqc-io/algo-shor-period-finding@20881d5: no algorithm.json",
     "openqc-io/algo-tensor-network-sim@a2ed966: validation failed",
-    "openqc-io/algo-vqe-bond-scan@b64005b: no algorithm.json",
+    "openqc-io/algo-vqe-bond-scan@b64005b: validation failed",
     "openqc-io/algo-vqe-h2o@f882547: validation failed",
     "openqc-io/algo-vqe-hubbard@8a11c61: validation failed"
   ],
@@ -884,6 +884,44 @@
       "status": "available",
       "metadata": {
         "year_introduced": 1995
+      },
+      "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "ghz-secret-sharing",
+      "name": "GHZ Secret Sharing",
+      "description": "3-party quantum secret sharing using a GHZ state: requires cooperation to recover secret.",
+      "repo": "openqc-io/algo-ghz-secret-sharing",
+      "commit_sha": "12b12256ceab31a78219ce35da34766bc431f6f5",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 3,
+      "tags": [
+        "ghz",
+        "secret-sharing",
+        "multiparty"
+      ],
+      "stars": 0,
+      "last_updated": "2026-05-15T03:30:44Z",
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1999
       },
       "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
@@ -1780,44 +1818,6 @@
       "status": "available",
       "metadata": {
         "year_introduced": 1995
-      },
-      "circuit_qasm_path": "circuit.qasm",
-      "template_path": "template.py"
-    },
-    {
-      "slug": "shor-period-finding",
-      "name": "Shor's Period Finding",
-      "description": "Core period-finding subroutine of Shor's algorithm: find the period r of f(x) = 7^x mod 15.",
-      "repo": "openqc-io/algo-shor-period-finding",
-      "commit_sha": "20881d50ff7c3d85d7a134bd3f3bc16ad2a2b9b0",
-      "default_branch": "main",
-      "version": "1.0.0",
-      "author": "iniestarchen",
-      "license": "Apache-2.0",
-      "owner": "openqc",
-      "scope": "catalog",
-      "access": "open",
-      "implementation_mode": "catalog_synced",
-      "industries": [
-        "cryptography"
-      ],
-      "techniques": [
-        "gate"
-      ],
-      "difficulty": "advanced",
-      "computation_model": "gate",
-      "algorithm_type": "circuit",
-      "qubit_count": 4,
-      "tags": [
-        "shor",
-        "factoring",
-        "period-finding"
-      ],
-      "stars": 0,
-      "last_updated": "2026-05-15T03:17:46Z",
-      "status": "available",
-      "metadata": {
-        "year_introduced": 1994
       },
       "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
