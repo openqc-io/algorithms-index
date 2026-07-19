@@ -3093,7 +3093,7 @@
       "name": "VQE - Hubbard Model Lattice Simulation",
       "description": "Simulate the Fermi-Hubbard model on a small lattice using VQE. The Hubbard model describes electron interactions in materials \u2014 fundamental to understanding superconductivity, magnetism, and strongly correlated systems. Jordan-Wigner mapping at useful lattice sizes requires Qiskit Nature. A 2-site model (4 qubits) could be hardcoded as educational.",
       "repo": "openqc-io/algo-vqe-hubbard",
-      "commit_sha": "1e08296f8500bedc70b001de4827ccf352354d0b",
+      "commit_sha": "9d3b6737e517ab7ba412bfcf89c3f6725fa0d7c2",
       "default_branch": "main",
       "version": "1.0.0",
       "author": "openqc-team",
