@@ -2605,7 +2605,7 @@
       "name": "Quantum Approximate Optimization Algorithm (QAOA)",
       "description": "Approximate combinatorial optimization using alternating problem and mixer unitaries. This 4-qubit example targets a MaxCut problem on a 4-node ring graph with p=1.",
       "repo": "openqc-io/algo-qaoa",
-      "commit_sha": "af477ab5bb391431d8a70a63e8a0072e82fee520",
+      "commit_sha": "e31abe4f64398108d19b8d7c56ab1c1390760a43",
       "default_branch": "main",
       "version": "1.0.0",
       "author": "iniestarchen",
