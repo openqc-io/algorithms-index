@@ -2599,6 +2599,538 @@
       },
       "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
+    },
+    {
+      "slug": "qaoa",
+      "name": "Quantum Approximate Optimization Algorithm (QAOA)",
+      "description": "Approximate combinatorial optimization using alternating problem and mixer unitaries. This 4-qubit example targets a MaxCut problem on a 4-node ring graph with p=1.",
+      "repo": "openqc-io/algo-qaoa",
+      "commit_sha": "af477ab5bb391431d8a70a63e8a0072e82fee520",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "qaoa"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "variational",
+        "qaoa",
+        "maxcut",
+        "optimization",
+        "combinatorial",
+        "hybrid"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "blockers": [],
+      "metadata": {
+        "complexity_classical": "Optimizer-dependent",
+        "complexity_quantum": "O(p * m) where p=depth, m=edges",
+        "year_introduced": 2014,
+        "references": [
+          "https://arxiv.org/abs/1411.4028"
+        ]
+      }
+    },
+    {
+      "slug": "qaoa-graph-coloring",
+      "name": "QAOA - Graph Coloring",
+      "description": "Solve graph coloring using QAOA with QUBO penalty encoding. N nodes with K colors use N*K binary variables. One-hot constraint per node (exactly one color) plus penalty for same-color adjacent nodes. Practical for 4 nodes x 3 colors (12 qubits).",
+      "repo": "openqc-io/algo-qaoa-graph-coloring",
+      "commit_sha": "d3bf35a176aeaafe2b4214d6e321a2fd958a387f",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "logistics"
+      ],
+      "techniques": [
+        "qaoa"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "vqa",
+      "qubit_count": 12,
+      "tags": [
+        "qaoa",
+        "optimization",
+        "graph-coloring",
+        "combinatorial",
+        "intermediate"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "blockers": [],
+      "metadata": {
+        "complexity_classical": "NP-complete (decision), O(K^n) brute force",
+        "complexity_quantum": "O(poly(n)) per QAOA iteration, heuristic",
+        "year_introduced": 2014,
+        "references": [
+          "https://doi.org/10.3389/fphy.2014.00005"
+        ]
+      }
+    },
+    {
+      "slug": "qaoa-tsp",
+      "name": "QAOA - Travelling Salesman Problem",
+      "description": "Solve the Travelling Salesman Problem using QAOA with QUBO penalty encoding. N cities are mapped to N^2 binary variables (x_{i,p} = city i at position p). Constraints enforce each city visited once and each position filled once. Practical for 3 cities (9 qubits). Based on Lucas, Frontiers in Physics 2:5 (2014).",
+      "repo": "openqc-io/algo-qaoa-tsp",
+      "commit_sha": "03727caf33ed443e38454979fb1b23998579b944",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "logistics"
+      ],
+      "techniques": [
+        "qaoa"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "vqa",
+      "qubit_count": 9,
+      "tags": [
+        "qaoa",
+        "optimization",
+        "tsp",
+        "combinatorial",
+        "intermediate"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "blockers": [],
+      "metadata": {
+        "complexity_classical": "O(n!) brute force, O(n^2 * 2^n) dynamic programming",
+        "complexity_quantum": "O(poly(n)) per QAOA iteration, heuristic",
+        "year_introduced": 2014,
+        "references": [
+          "https://doi.org/10.3389/fphy.2014.00005"
+        ]
+      }
+    },
+    {
+      "slug": "qaoa-vrp",
+      "name": "QAOA - Vehicle Routing Problem",
+      "description": "Solve the Vehicle Routing Problem (VRP) via QAOA with QUBO encoding. Multiple vehicles serve customers from a depot, minimizing total distance. Generalization of TSP with capacity constraints. QUBO formulation scales fast (N customers \u00d7 K vehicles \u00d7 T time steps). Practical only when simulator handles 20+ qubits efficiently.",
+      "repo": "openqc-io/algo-qaoa-vrp",
+      "commit_sha": "9bd64016ac65df8b4c31b59e84786ad1134d5543",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "logistics"
+      ],
+      "techniques": [
+        "qaoa"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "vqa",
+      "qubit_count": 16,
+      "tags": [
+        "qaoa",
+        "optimization",
+        "vrp",
+        "logistics",
+        "advanced"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "blockers": [],
+      "metadata": {
+        "complexity_classical": "NP-hard",
+        "complexity_quantum": "O(poly(n)) per QAOA iteration, heuristic",
+        "year_introduced": 2019,
+        "references": [
+          "https://arxiv.org/abs/1908.02210"
+        ]
+      }
+    },
+    {
+      "slug": "annealing-maxcut",
+      "name": "MaxCut (Annealing)",
+      "description": "Solve MaxCut graph partitioning via quantum/simulated annealing. Same problem as qaoa-maxcut but uses annealing instead of gate-based QAOA. Compare results across paradigms: gate-based (QAOA) vs annealing on the same graph. QUBO formulation: Q_{ij} = -w for cut edges.",
+      "repo": "openqc-io/algo-annealing-maxcut",
+      "commit_sha": "d64b963e6adca534617d5b77efcfb85921e45418",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "annealing"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "annealing",
+      "algorithm_type": "annealing",
+      "qubit_count": 4,
+      "tags": [
+        "annealing",
+        "optimization",
+        "maxcut",
+        "graph",
+        "beginner"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "min_qubits": 2,
+      "recommended_backends": [
+        "openqc-annealing-sim"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "edges": {
+            "type": "array",
+            "description": "Graph edges as [i, j] pairs. Default: the 4-node ring [[0,1],[1,2],[2,3],[3,0]] \u2014 the same graph as qaoa-maxcut."
+          },
+          "num_reads": {
+            "type": "number",
+            "description": "Number of annealing samples (default 1000)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "partition": {
+            "type": "object"
+          },
+          "side_0": {
+            "type": "array"
+          },
+          "side_1": {
+            "type": "array"
+          },
+          "cut_edges": {
+            "type": "array"
+          },
+          "cut_size": {
+            "type": "number"
+          },
+          "num_edges": {
+            "type": "number"
+          },
+          "cut_fraction": {
+            "type": "number"
+          },
+          "best_energy": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "complexity_classical": "NP-hard (decision), O(2^n) brute force",
+        "complexity_quantum": "Annealing heuristic, no proven speedup for general graphs",
+        "year_introduced": 2001,
+        "references": [
+          "https://doi.org/10.1126/science.1057726"
+        ],
+        "academic_intro": "MaxCut asks for a two-way split of a graph's nodes that cuts as many edges as possible. This template encodes it as a QUBO (energy = minus the cut size) and lets simulated annealing settle into a low-energy state.",
+        "expected_takeaway": "Compare with qaoa-maxcut on the identical 4-node ring: gate-based QAOA and annealing attack the same problem through different computation models."
+      },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "annealing-jobshop",
+      "name": "Job-Shop Scheduling (Annealing)",
+      "description": "Solve job-shop scheduling via annealing with QUBO encoding. Each job has ordered tasks assigned to machines with durations. Minimizes makespan (latest completion time). Real-world operations research problem used in manufacturing, logistics, and project management. Based on Venturelli et al., Physical Review X (2015).",
+      "repo": "openqc-io/algo-annealing-jobshop",
+      "commit_sha": "e9e38f43a8185b8f2b5fd7b2cfcbef08ae16703c",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "logistics"
+      ],
+      "techniques": [
+        "annealing"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "annealing",
+      "algorithm_type": "annealing",
+      "qubit_count": 12,
+      "tags": [
+        "annealing",
+        "optimization",
+        "scheduling",
+        "operations-research",
+        "industry",
+        "intermediate"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "min_qubits": 4,
+      "recommended_backends": [
+        "openqc-annealing-sim"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "jobs": {
+            "type": "array",
+            "description": "List of jobs; each job is an ordered list of [machine, duration] operations. Default: 2 jobs x 2 machines, unit durations (12 QUBO variables)."
+          },
+          "horizon": {
+            "type": "number",
+            "description": "Number of discrete start-time slots (default 3). Variables = total_ops * horizon."
+          },
+          "num_reads": {
+            "type": "number",
+            "description": "Number of annealing samples (default 2000)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "schedule": {
+            "type": "object"
+          },
+          "valid": {
+            "type": "boolean"
+          },
+          "makespan": {
+            "type": "number"
+          },
+          "violations": {
+            "type": "object"
+          },
+          "best_energy": {
+            "type": "number"
+          },
+          "num_variables": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "complexity_classical": "NP-hard, O(n!) brute force",
+        "complexity_quantum": "Annealing heuristic",
+        "year_introduced": 2015,
+        "references": [
+          "https://doi.org/10.1103/PhysRevX.5.031040"
+        ],
+        "academic_intro": "Job-shop scheduling assigns each job's ordered operations to machines without overlaps, minimising the makespan. This template uses the time-indexed QUBO of Venturelli et al. (PRX 2015): x_{o,t}=1 iff operation o starts at time t, with one-start, precedence and machine-conflict penalties plus a small early-finish bias.",
+        "expected_takeaway": "You will see annealing find the parallel machine-swap schedule (makespan 2) for the demo instance, and how constraint violations are honestly flagged when a sample is infeasible."
+      },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "entanglement-swapping",
+      "name": "Entanglement Swapping",
+      "description": "Create entanglement between two qubits that never directly interact, via entanglement swapping.",
+      "repo": "openqc-io/algo-entanglement-swapping",
+      "commit_sha": "6f7d99d9181115915b111aefda832a3a6882f313",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "iniestarchen",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "foundational"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 4,
+      "tags": [
+        "entanglement-swapping",
+        "teleportation",
+        "bell-state"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "metadata": {
+        "year_introduced": 1993
+      },
+      "template_path": "template.py"
+    },
+    {
+      "slug": "b92-qkd",
+      "name": "B92 Quantum Key Distribution",
+      "description": "Simulate the B92 QKD protocol (Bennett, 1992). A simplified version of BB84 using only 2 non-orthogonal states (|0> and |+>) instead of 4. Bob's conclusive measurements yield key bits. Simpler but lower key rate than BB84.",
+      "repo": "openqc-io/algo-b92-qkd",
+      "commit_sha": "5101830d5911fed07d01074692db9989065cb424",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 8,
+      "tags": [
+        "qkd",
+        "cryptography",
+        "b92",
+        "quantum-communication",
+        "beginner"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "blockers": [],
+      "metadata": {
+        "complexity_classical": "N/A",
+        "complexity_quantum": "O(n) qubits for n transmitted bits",
+        "year_introduced": 1992,
+        "references": [
+          "https://doi.org/10.1103/PhysRevLett.68.3121"
+        ]
+      }
+    },
+    {
+      "slug": "e91-qkd",
+      "name": "E91 Entanglement-Based QKD",
+      "description": "Simulate the E91 QKD protocol (Ekert, 1991). Uses shared Bell pairs for key distribution. Alice and Bob measure in different bases \u2014 matching bases yield key bits, non-matching bases test the CHSH Bell inequality. Violation of CHSH (S > 2) proves the quantum channel is secure; S <= 2 indicates eavesdropping.",
+      "repo": "openqc-io/algo-e91-qkd",
+      "commit_sha": "d2d2057bb7ceda528b6739be0d73c2c1f65980ec",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "cryptography"
+      ],
+      "techniques": [
+        "gate"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "gate",
+      "algorithm_type": "circuit",
+      "qubit_count": 12,
+      "tags": [
+        "qkd",
+        "cryptography",
+        "e91",
+        "entanglement",
+        "chsh",
+        "intermediate"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "blockers": [],
+      "metadata": {
+        "complexity_classical": "N/A",
+        "complexity_quantum": "O(2n) qubits for n Bell pairs",
+        "year_introduced": 1991,
+        "references": [
+          "https://doi.org/10.1103/PhysRevLett.67.661"
+        ]
+      }
+    },
+    {
+      "slug": "vqe-hubbard",
+      "name": "VQE - Hubbard Model Lattice Simulation",
+      "description": "Simulate the Fermi-Hubbard model on a small lattice using VQE. The Hubbard model describes electron interactions in materials \u2014 fundamental to understanding superconductivity, magnetism, and strongly correlated systems. Jordan-Wigner mapping at useful lattice sizes requires Qiskit Nature. A 2-site model (4 qubits) could be hardcoded as educational.",
+      "repo": "openqc-io/algo-vqe-hubbard",
+      "commit_sha": "958fa9ae8d947e08d5f9561ab0ae3638d347ffc8",
+      "default_branch": "main",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "materials"
+      ],
+      "techniques": [
+        "vqe"
+      ],
+      "difficulty": "advanced",
+      "computation_model": "gate",
+      "algorithm_type": "vqa",
+      "qubit_count": 4,
+      "tags": [
+        "vqe",
+        "materials",
+        "hubbard",
+        "condensed-matter",
+        "advanced"
+      ],
+      "stars": 0,
+      "last_updated": "",
+      "status": "available",
+      "blockers": [],
+      "metadata": {
+        "complexity_classical": "O(2^(2L)) for L-site lattice",
+        "complexity_quantum": "O(poly(L)) per VQE iteration",
+        "year_introduced": 1963,
+        "references": [
+          "https://doi.org/10.1098/rspa.1963.0204"
+        ]
+      }
     }
   ]
 }
