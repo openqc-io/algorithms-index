@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T08:08:30.182474+00:00",
+  "generated_at": "2026-07-19T13:05:37.374844+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
   "total": 52,
@@ -92,11 +92,11 @@
         "scheduling"
       ],
       "stars": 0,
-      "last_updated": "2026-05-16T14:07:38Z",
+      "last_updated": "2026-07-19T11:01:08Z",
       "status": "available",
       "min_qubits": 8,
       "recommended_backends": [
-        "openqc-annealing-sim"
+        "vortex-annealing-sim"
       ],
       "input_schema": {
         "type": "object",
@@ -179,11 +179,11 @@
         "qubo"
       ],
       "stars": 0,
-      "last_updated": "2026-05-16T14:07:45Z",
+      "last_updated": "2026-07-19T11:01:12Z",
       "status": "available",
       "min_qubits": 4,
       "recommended_backends": [
-        "openqc-annealing-sim"
+        "vortex-annealing-sim"
       ],
       "input_schema": {
         "type": "object",
@@ -282,7 +282,7 @@
       "status": "available",
       "min_qubits": 1,
       "recommended_backends": [
-        "openqc-annealing-sim"
+        "vortex-annealing-sim"
       ],
       "input_schema": {
         "type": "object",
@@ -354,7 +354,7 @@
         "simulation"
       ],
       "stars": 0,
-      "last_updated": "2026-05-16T14:08:01Z",
+      "last_updated": "2026-07-19T11:10:23Z",
       "status": "available",
       "min_qubits": 4,
       "recommended_backends": [
@@ -1470,7 +1470,7 @@
         "qpe"
       ],
       "stars": 0,
-      "last_updated": "2026-05-16T14:08:41Z",
+      "last_updated": "2026-07-19T11:10:27Z",
       "status": "available",
       "min_qubits": 6,
       "recommended_backends": [
@@ -1661,7 +1661,7 @@
         "machine-learning"
       ],
       "stars": 0,
-      "last_updated": "2026-05-16T14:08:49Z",
+      "last_updated": "2026-07-19T11:10:31Z",
       "status": "available",
       "min_qubits": 4,
       "recommended_backends": [
@@ -2095,7 +2095,7 @@
         "channel-coding"
       ],
       "stars": 0,
-      "last_updated": "2026-05-16T14:08:56Z",
+      "last_updated": "2026-07-19T11:10:34Z",
       "status": "available",
       "min_qubits": 5,
       "recommended_backends": [
