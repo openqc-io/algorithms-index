@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T18:59:05.712169+00:00",
+  "generated_at": "2026-07-20T02:30:48.630333+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
   "total": 62,
@@ -83,7 +83,7 @@
         "intermediate"
       ],
       "stars": 0,
-      "last_updated": "2026-07-19T13:14:39Z",
+      "last_updated": "2026-07-19T19:30:37Z",
       "status": "available",
       "min_qubits": 4,
       "recommended_backends": [
@@ -174,7 +174,7 @@
         "beginner"
       ],
       "stars": 0,
-      "last_updated": "2026-07-19T13:14:34Z",
+      "last_updated": "2026-07-19T19:30:33Z",
       "status": "available",
       "min_qubits": 2,
       "recommended_backends": [
@@ -529,7 +529,7 @@
         "beginner"
       ],
       "stars": 0,
-      "last_updated": "2026-07-19T13:15:16Z",
+      "last_updated": "2026-07-19T19:30:40Z",
       "status": "available",
       "blockers": [],
       "metadata": {
@@ -1493,7 +1493,7 @@
         "hybrid"
       ],
       "stars": 0,
-      "last_updated": "2026-07-19T13:22:42Z",
+      "last_updated": "2026-07-19T19:30:18Z",
       "status": "available",
       "blockers": [],
       "metadata": {
@@ -1537,7 +1537,7 @@
         "intermediate"
       ],
       "stars": 0,
-      "last_updated": "2026-07-19T13:16:23Z",
+      "last_updated": "2026-07-19T19:30:22Z",
       "status": "available",
       "blockers": [],
       "metadata": {
@@ -1707,7 +1707,7 @@
         "intermediate"
       ],
       "stars": 0,
-      "last_updated": "2026-07-19T13:16:28Z",
+      "last_updated": "2026-07-19T19:30:25Z",
       "status": "available",
       "blockers": [],
       "metadata": {
@@ -1751,7 +1751,7 @@
         "advanced"
       ],
       "stars": 0,
-      "last_updated": "2026-07-19T13:17:21Z",
+      "last_updated": "2026-07-19T19:30:29Z",
       "status": "available",
       "blockers": [],
       "metadata": {
@@ -2939,7 +2939,7 @@
         "advanced"
       ],
       "stars": 0,
-      "last_updated": "2026-07-19T13:36:17Z",
+      "last_updated": "2026-07-19T19:30:44Z",
       "status": "available",
       "blockers": [],
       "metadata": {
