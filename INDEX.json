@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T00:22:54.574206+00:00",
+  "generated_at": "2026-11-03T13:30:32.891971+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
   "total": 62,
@@ -8,7 +8,7 @@
     "openqc-io/algo-drug-docking@e4101cf: validation failed",
     "openqc-io/algo-protein-folding@9541da0: validation failed",
     "openqc-io/algo-tensor-network-sim@a2ed966: validation failed",
-    "openqc-io/algo-vqe-bond-scan@b64005b: validation failed",
+    "openqc-io/algo-vqe-bond-scan@b64005b: no algorithm.json",
     "openqc-io/algo-vqe-h2o@f882547: validation failed"
   ],
   "algorithms": [
