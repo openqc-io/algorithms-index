@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-07T21:21:41.692368+00:00",
+  "generated_at": "2026-11-08T03:58:58.407158+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
-  "total": 62,
+  "total": 61,
   "algorithms": [
     {
       "slug": "amplitude-estimation",
@@ -2222,42 +2222,6 @@
       "status": "available",
       "metadata": {
         "year_introduced": 1994
-      },
-      "circuit_qasm_path": "circuit.qasm",
-      "template_path": "template.py"
-    },
-    {
-      "slug": "steane-code",
-      "name": "Steane [[7,1,3]] Code",
-      "description": "First CSS code: encodes 1 logical qubit in 7 physical qubits, corrects any single-qubit error.",
-      "repo": "openqc-io/algo-steane-code",
-      "commit_sha": "25b2e09288c8bc3c75fa701ba85d1aa58a49de5b",
-      "version": "1.0.0",
-      "author": "iniestarchen",
-      "license": "Apache-2.0",
-      "owner": "openqc",
-      "scope": "catalog",
-      "access": "open",
-      "implementation_mode": "catalog_synced",
-      "industries": [
-        "foundational"
-      ],
-      "techniques": [
-        "qec"
-      ],
-      "difficulty": "advanced",
-      "computation_model": "gate",
-      "algorithm_type": "circuit",
-      "qubit_count": 7,
-      "tags": [
-        "steane",
-        "css-code",
-        "qec",
-        "error-correction"
-      ],
-      "status": "available",
-      "metadata": {
-        "year_introduced": 1996
       },
       "circuit_qasm_path": "circuit.qasm",
       "template_path": "template.py"
