@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T14:11:14.751810+00:00",
+  "generated_at": "2026-11-10T22:45:18.810454+00:00",
   "schema_version": "https://github.com/openqc-io/algorithms-index/blob/main/schema.json",
   "taxonomy_version": "2.0",
-  "total": 61,
+  "total": 62,
   "algorithms": [
     {
       "slug": "amplitude-estimation",
@@ -37,6 +37,95 @@
         "year_introduced": 2000
       },
       "circuit_qasm_path": "circuit.qasm",
+      "template_path": "template.py"
+    },
+    {
+      "slug": "annealing-jobshop",
+      "name": "Job-Shop Scheduling (Annealing)",
+      "description": "Solve job-shop scheduling via annealing with QUBO encoding. Each job has ordered tasks assigned to machines with durations. Minimizes makespan (latest completion time). Real-world operations research problem used in manufacturing, logistics, and project management. Based on Venturelli et al., Physical Review X (2015).",
+      "repo": "openqc-io/algo-annealing-jobshop",
+      "commit_sha": "d1ecbebb73cf8f1c5d493969c2802324eaa48d89",
+      "version": "1.0.0",
+      "author": "openqc-team",
+      "license": "Apache-2.0",
+      "owner": "openqc",
+      "scope": "catalog",
+      "access": "open",
+      "implementation_mode": "catalog_synced",
+      "industries": [
+        "logistics"
+      ],
+      "techniques": [
+        "annealing"
+      ],
+      "difficulty": "intermediate",
+      "computation_model": "annealing",
+      "algorithm_type": "annealing",
+      "qubit_count": 12,
+      "tags": [
+        "annealing",
+        "optimization",
+        "scheduling",
+        "operations-research",
+        "industry",
+        "intermediate"
+      ],
+      "status": "available",
+      "min_qubits": 4,
+      "recommended_backends": [
+        "openqc-annealing-sim"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "jobs": {
+            "type": "array",
+            "description": "List of jobs; each job is an ordered list of [machine, duration] operations. Default: 2 jobs x 2 machines, unit durations (12 QUBO variables)."
+          },
+          "horizon": {
+            "type": "number",
+            "description": "Number of discrete start-time slots (default 3). Variables = total_ops * horizon."
+          },
+          "num_reads": {
+            "type": "number",
+            "description": "Number of annealing samples (default 2000)"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "schedule": {
+            "type": "object"
+          },
+          "valid": {
+            "type": "boolean"
+          },
+          "makespan": {
+            "type": "number"
+          },
+          "violations": {
+            "type": "object"
+          },
+          "best_energy": {
+            "type": "number"
+          },
+          "num_variables": {
+            "type": "number"
+          }
+        }
+      },
+      "metadata": {
+        "complexity_classical": "NP-hard, O(n!) brute force",
+        "complexity_quantum": "Annealing heuristic",
+        "year_introduced": 2015,
+        "references": [
+          "https://doi.org/10.1103/PhysRevX.5.031040"
+        ],
+        "academic_intro": "Job-shop scheduling assigns each job's ordered operations to machines without overlaps, minimising the makespan. This template uses the time-indexed QUBO of Venturelli et al. (PRX 2015): x_{o,t}=1 iff operation o starts at time t, with one-start, precedence and machine-conflict penalties plus a small early-finish bias.",
+        "expected_takeaway": "You will see annealing find the parallel machine-swap schedule (makespan 2) for the demo instance, and how constraint violations are honestly flagged when a sample is infeasible."
+      },
       "template_path": "template.py"
     },
     {
